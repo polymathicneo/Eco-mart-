@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMart - Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-posts {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .blog-card {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .blog-card h3 {
+            margin: 0;
+            color: var(--primary-dark);
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>EcoMart</h1>
+                <p>Sustainable Lifestyle Products</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="research.html">Research</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="section-title">
+                <h2>Our Blog</h2>
+                <p>Insights on sustainability, green technology, and modern living.</p>
+            </div>
+
+            <div class="blog-posts">
+                <article class="blog-card">
+                    <div class="blog-meta">December 28, 2025 • Technology</div>
+                    <h3>How Technology Affects Daily Life</h3>
+                    <p>Technology has revolutionized the way we live, work, and interact. From smart homes to
+                        sustainable energy solutions, we explore the impact of tech on our ecological footprint and how
+                        we can use it for good.</p>
+                    <a href="#" class="read-more">Read Full Article &rarr;</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-meta">December 15, 2025 • Lifestyle</div>
+                    <h3>Top 10 Tips for a Zero-Waste Kitchen</h3>
+                    <p>Reducing waste starts at home. Learn simple, effective ways to minimize plastic usage, compost
+                        food scraps, and choose sustainable products for a greener kitchen.</p>
+                    <a href="#" class="read-more">Read Full Article &rarr;</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-meta">November 30, 2025 • Products</div>
+                    <h3>Why Bamboo is the Future of Sustainable Materials</h3>
+                    <p>Bamboo is fast-growing, biodegradable, and incredibly versatile. Discover why we use bamboo in
+                        our bottles, brushes, and textiles, and why it's a superior alternative to plastic.</p>
+                    <a href="#" class="read-more">Read Full Article &rarr;</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+    </footer>
+</body>
+
+</html>

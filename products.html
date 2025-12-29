@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMart - Sustainable Products</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            /* or cover, depending on image preference */
+            margin-bottom: var(--spacing-sm);
+            border-radius: 8px;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: var(--spacing-xs) 0;
+        }
+
+        .discounted {
+            color: var(--primary-dark);
+        }
+
+        del {
+            color: #999;
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        .product-card button {
+            margin-top: auto;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color var(--transition-fast);
+        }
+
+        .product-card button:hover {
+            background-color: var(--primary-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>EcoMart</h1>
+                <p>Sustainable Lifestyle Products</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="research.html">Research</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">Explore our wide range of eco-friendly
+                    products designed to help you live a sustainable lifestyle.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Bamboo Bottle -->
+                <div class="feature-card product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJizyP8bu9caUxCks8aSyVJB-NeUU2Q29Ifw&s"
+                        alt="Bamboo Bottle">
+                    <h3>Bamboo Bottle</h3>
+                    <p class="price"><span class="discounted">NPR20</span> <del>NPR25</del></p>
+                    <p>Eco-friendly, reusable bamboo water bottle. Keep liquids fresh and stylish.</p>
+                    <button>Add to Cart</button>
+                </div>
+
+                <!-- Organic Tote Bag -->
+                <div class="feature-card product-card">
+                    <img src="https://www.intelligentchange.com/cdn/shop/products/4X5-WebRes-Intelligent-Change-Tote-Bags-1_301b012d-03b9-4917-96ff-e911c5783d56.jpg?v=1671127106&width=200"
+                        alt="Organic Tote Bag">
+                    <h3>Organic Tote Bag</h3>
+                    <p class="price"><span class="discounted">NPR30</span> <del>NPR35</del></p>
+                    <p>Reusable organic cotton tote bag for everyday shopping and carrying essentials.</p>
+                    <button>Add to Cart</button>
+                </div>
+
+                <!-- Silicone Food Bags -->
+                <div class="feature-card product-card">
+                    <img src="https://m.media-amazon.com/images/I/513bUQ5EITL._AC_UF200,200_QL80_.jpg"
+                        alt="Silicone Food Bags">
+                    <h3>Silicone Food Bag</h3>
+                    <p class="price"><span class="discounted">NPR20</span> <del>NPR40</del></p>
+                    <p>Reusable Silicone food bag for packing meals. Washable and durable.</p>
+                    <button>Add to Cart</button>
+                </div>
+
+                <!-- Reusable Coffee Cups -->
+                <div class="feature-card product-card">
+                    <img src="https://img.drz.lazcdn.com/static/np/p/b28c8d7c450fcb26604a0003aae17e4b.jpg_200x200q80.jpg"
+                        alt="Reusable Coffee Cup">
+                    <h3>Reusable Coffee Cup</h3>
+                    <p class="price"><span class="discounted">NPR20</span> <del>NPR35</del></p>
+                    <p>Reusable coffee cup, easy to hold and perfect for enjoying your coffee on the go.</p>
+                    <button>Add to Cart</button>
+                </div>
+
+                <!-- Dishwashing Brushes -->
+                <div class="feature-card product-card">
+                    <img src="https://econaturalproducts.co.uk/cdn/shop/files/bamboo-dish-brush-long-handle-eco-natural-products-701278.jpg?v=1728498834&width=200"
+                        alt="Dishwashing Brush">
+                    <h3>Bamboo Dish Brush</h3>
+                    <p class="price"><span class="discounted">NPR10</span> <del>NPR20</del></p>
+                    <p>Reusable Dishwashing Brushes with bamboo handles to keep plates clean and bright.</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+    </footer>
+</body>
+
+</html>
