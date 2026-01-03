@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoMart - Sustainable Products</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/cart.js"></script>
+    <script src="js/dynamic-content.js"></script>
     <style>
         .product-card {
             display: flex;
@@ -92,7 +94,7 @@
                     <h3>Bamboo Bottle</h3>
                     <p class="price"><span class="discounted">NPR20</span> <del>NPR25</del></p>
                     <p>Eco-friendly, reusable bamboo water bottle. Keep liquids fresh and stylish.</p>
-                    <button>Add to Cart</button>
+                    <button onclick="addToCart('Bamboo Bottle', 'NPR20', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJizyP8bu9caUxCks8aSyVJB-NeUU2Q29Ifw&s')">Add to Cart</button>
                 </div>
 
                 <!-- Organic Tote Bag -->
@@ -102,7 +104,7 @@
                     <h3>Organic Tote Bag</h3>
                     <p class="price"><span class="discounted">NPR30</span> <del>NPR35</del></p>
                     <p>Reusable organic cotton tote bag for everyday shopping and carrying essentials.</p>
-                    <button>Add to Cart</button>
+                    <button onclick="addToCart('Organic Tote Bag', 'NPR30', 'https://www.intelligentchange.com/cdn/shop/products/4X5-WebRes-Intelligent-Change-Tote-Bags-1_301b012d-03b9-4917-96ff-e911c5783d56.jpg?v=1671127106&width=200')">Add to Cart</button>
                 </div>
 
                 <!-- Silicone Food Bags -->
@@ -112,7 +114,7 @@
                     <h3>Silicone Food Bag</h3>
                     <p class="price"><span class="discounted">NPR20</span> <del>NPR40</del></p>
                     <p>Reusable Silicone food bag for packing meals. Washable and durable.</p>
-                    <button>Add to Cart</button>
+                    <button onclick="addToCart('Silicone Food Bag', 'NPR20', 'https://m.media-amazon.com/images/I/513bUQ5EITL._AC_UF200,200_QL80_.jpg')">Add to Cart</button>
                 </div>
 
                 <!-- Reusable Coffee Cups -->
@@ -122,7 +124,7 @@
                     <h3>Reusable Coffee Cup</h3>
                     <p class="price"><span class="discounted">NPR20</span> <del>NPR35</del></p>
                     <p>Reusable coffee cup, easy to hold and perfect for enjoying your coffee on the go.</p>
-                    <button>Add to Cart</button>
+                    <button onclick="addToCart('Reusable Coffee Cup', 'NPR20', 'https://img.drz.lazcdn.com/static/np/p/b28c8d7c450fcb26604a0003aae17e4b.jpg_200x200q80.jpg')">Add to Cart</button>
                 </div>
 
                 <!-- Dishwashing Brushes -->
@@ -132,7 +134,7 @@
                     <h3>Bamboo Dish Brush</h3>
                     <p class="price"><span class="discounted">NPR10</span> <del>NPR20</del></p>
                     <p>Reusable Dishwashing Brushes with bamboo handles to keep plates clean and bright.</p>
-                    <button>Add to Cart</button>
+                    <button onclick="addToCart('Bamboo Dish Brush', 'NPR10', 'https://econaturalproducts.co.uk/cdn/shop/files/bamboo-dish-brush-long-handle-eco-natural-products-701278.jpg?v=1728498834&width=200')">Add to Cart</button>
                 </div>
             </div>
         </section>
