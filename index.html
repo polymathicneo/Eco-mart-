@@ -1,7 +1,11 @@
 <!DOCTYPE html>
+<!-- EcoMart Website - Home Page -->
+<!-- Created by: Shubham Sedai, Monika Khatri, Babisha Karki, Arayan Timalsena -->
+<!-- Coursework for Introduction to Information Systems -->
 <html lang="en">
 
 <head>
+    <!-- Meta tags for proper HTML structure and SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EcoMart - Your premium store for sustainable living products">
@@ -9,8 +13,67 @@
     <title>EcoMart - Sustainable Living</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Internal CSS for Index Page - Hero Section Customization */
+        .hero {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+            margin-bottom: 4rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #FBC02D;
+            color: #2E7D32;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Features Grid Customization */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
     <script src="js/dynamic-content.js"></script>
-</head>
 
 <body>
 
@@ -28,16 +91,20 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="research.html">Research</a></li>
+                    <li class="cart-icon">
+                        <a href="cart.html" title="Shopping Cart">🛒</a>
+                        <span id="cart-counter" class="cart-counter"></span>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <div class="hero">
-        <h2>Welcome to EcoMart</h2>
-        <p>Providing sustainable alternatives for everyday living. Join us in making the planet greener, one purchase at
+        <h2 style="font-size: 3rem; margin-bottom: 1rem; color: white;">Welcome to EcoMart</h2>
+        <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem; opacity: 0.9;">Providing sustainable alternatives for everyday living. Join us in making the planet greener, one purchase at
             a time.</p>
-        <a href="products.html" class="btn">Shop Now</a>
+        <a href="products.html" class="btn" style="display: inline-block; background-color: #FBC02D; color: #2E7D32; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold;">Shop Now</a>
     </div>
 
     <main>
@@ -74,7 +141,54 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>EcoMart</h4>
+                <p>Your premium store for sustainable living products. Join us in making the planet greener, one purchase at a time.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Twitter">🐦</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="cart.html">Shopping Cart</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Stay Connected</h4>
+                <p>Subscribe to our newsletter for the latest updates on sustainable products and eco-friendly tips.</p>
+                <form class="newsletter-form" onsubmit="handleNewsletterSubscription(event)">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+        </div>
     </footer>
 
 </body>

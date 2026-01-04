@@ -1,4 +1,5 @@
 // Dynamic content functionality for EcoMart website
+// This file contains JavaScript functions for interactive features
 
 // Blog expansion functionality
 const blogContent = {
@@ -130,22 +131,22 @@ function toggleBlogPost(index) {
  * Updates cart counter display in header
  */
 function updateCartCounter() {
-    let cartCounter = document.getElementById('cart-counter');
-    if (!cartCounter) {
-        // Create cart counter if it doesn't exist
-        const nav = document.querySelector('nav ul');
-        if (nav) {
-            const cartItem = document.createElement('li');
-            cartItem.innerHTML = '<a href="cart.html" id="cart-link">Cart <span id="cart-counter" class="cart-counter">0</span></a>';
-            nav.appendChild(cartItem);
-            cartCounter = document.getElementById('cart-counter');
-        }
-    }
+    const cartCounter = document.getElementById('cart-counter');
+    if (!cartCounter) return;
 
     // Get cart count from localStorage
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const count = cart.reduce((total, item) => total + item.quantity, 0);
+
+    // Update counter text
     cartCounter.textContent = count;
+
+    // Show/hide counter based on cart contents
+    if (count > 0) {
+        cartCounter.style.display = 'inline-flex';
+    } else {
+        cartCounter.style.display = 'none';
+    }
 }
 
 /**
@@ -209,6 +210,71 @@ function toggleTheme() {
         themeButton.innerHTML = '☀️';
         localStorage.setItem('theme', 'dark');
     }
+}
+
+/**
+ * Handles newsletter subscription with popup confirmation
+ * @param {Event} event - Form submit event
+ */
+function handleNewsletterSubscription(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const email = form.querySelector('input[type="email"]').value;
+
+    if (!email) {
+        alert('Please enter your email address');
+        return;
+    }
+
+    // Show confirmation popup
+    const confirmed = confirm(`Subscribe "${email}" to our newsletter?\n\nYou'll receive updates on sustainable products and eco-friendly tips.`);
+
+    if (confirmed) {
+        // Simulate subscription (in real app, this would send to server)
+        alert('Thank you for subscribing! 🎉\n\nWelcome to the EcoMart community.');
+        form.reset();
+
+        // Show success message
+        showNotification('Successfully subscribed to newsletter!', 'success');
+    }
+}
+
+/**
+ * Shows a notification message to the user
+ * @param {string} message - Message to display
+ * @param {string} type - Type of notification (success, error, info)
+ */
+function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+        color: white;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 10000;
+        font-weight: bold;
+        animation: slideIn 0.3s ease-out;
+    `;
+
+    document.body.appendChild(notification);
+
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease-in';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
 }
 
 // Initialize dynamic content when DOM is loaded

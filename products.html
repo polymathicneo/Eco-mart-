@@ -73,6 +73,10 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="research.html">Research</a></li>
+                    <li class="cart-icon">
+                        <a href="cart.html" title="Shopping Cart">🛒</a>
+                        <span id="cart-counter" class="cart-counter"></span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -92,9 +96,9 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJizyP8bu9caUxCks8aSyVJB-NeUU2Q29Ifw&s"
                         alt="Bamboo Bottle">
                     <h3>Bamboo Bottle</h3>
-                    <p class="price"><span class="discounted">NPR20</span> <del>NPR25</del></p>
+                    <p class="price"><span class="discounted">NPR200</span> <del>NPR500</del></p>
                     <p>Eco-friendly, reusable bamboo water bottle. Keep liquids fresh and stylish.</p>
-                    <button onclick="addToCart('Bamboo Bottle', 'NPR20', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJizyP8bu9caUxCks8aSyVJB-NeUU2Q29Ifw&s')">Add to Cart</button>
+                    <button onclick="addToCart('Bamboo Bottle', 'NPR300', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJizyP8bu9caUxCks8aSyVJB-NeUU2Q29Ifw&s')">Add to Cart</button>
                 </div>
 
                 <!-- Organic Tote Bag -->
@@ -112,7 +116,7 @@
                     <img src="https://m.media-amazon.com/images/I/513bUQ5EITL._AC_UF200,200_QL80_.jpg"
                         alt="Silicone Food Bags">
                     <h3>Silicone Food Bag</h3>
-                    <p class="price"><span class="discounted">NPR20</span> <del>NPR40</del></p>
+                    <p class="price"><span class="discounted">NPR200</span> <del>NPR400</del></p>
                     <p>Reusable Silicone food bag for packing meals. Washable and durable.</p>
                     <button onclick="addToCart('Silicone Food Bag', 'NPR20', 'https://m.media-amazon.com/images/I/513bUQ5EITL._AC_UF200,200_QL80_.jpg')">Add to Cart</button>
                 </div>
@@ -122,9 +126,9 @@
                     <img src="https://img.drz.lazcdn.com/static/np/p/b28c8d7c450fcb26604a0003aae17e4b.jpg_200x200q80.jpg"
                         alt="Reusable Coffee Cup">
                     <h3>Reusable Coffee Cup</h3>
-                    <p class="price"><span class="discounted">NPR20</span> <del>NPR35</del></p>
+                    <p class="price"><span class="discounted">NPR200</span> <del>NPR350</del></p>
                     <p>Reusable coffee cup, easy to hold and perfect for enjoying your coffee on the go.</p>
-                    <button onclick="addToCart('Reusable Coffee Cup', 'NPR20', 'https://img.drz.lazcdn.com/static/np/p/b28c8d7c450fcb26604a0003aae17e4b.jpg_200x200q80.jpg')">Add to Cart</button>
+                    <button onclick="addToCart('Reusable Coffee Cup', 'NPR200', 'https://img.drz.lazcdn.com/static/np/p/b28c8d7c450fcb26604a0003aae17e4b.jpg_200x200q80.jpg')">Add to Cart</button>
                 </div>
 
                 <!-- Dishwashing Brushes -->
@@ -132,16 +136,63 @@
                     <img src="https://econaturalproducts.co.uk/cdn/shop/files/bamboo-dish-brush-long-handle-eco-natural-products-701278.jpg?v=1728498834&width=200"
                         alt="Dishwashing Brush">
                     <h3>Bamboo Dish Brush</h3>
-                    <p class="price"><span class="discounted">NPR10</span> <del>NPR20</del></p>
+                    <p class="price"><span class="discounted">NPR100</span> <del>NPR200</del></p>
                     <p>Reusable Dishwashing Brushes with bamboo handles to keep plates clean and bright.</p>
-                    <button onclick="addToCart('Bamboo Dish Brush', 'NPR10', 'https://econaturalproducts.co.uk/cdn/shop/files/bamboo-dish-brush-long-handle-eco-natural-products-701278.jpg?v=1728498834&width=200')">Add to Cart</button>
+                    <button onclick="addToCart('Bamboo Dish Brush', 'NPR100', 'https://econaturalproducts.co.uk/cdn/shop/files/bamboo-dish-brush-long-handle-eco-natural-products-701278.jpg?v=1728498834&width=200')">Add to Cart</button>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>EcoMart</h4>
+                <p>Your premium store for sustainable living products. Join us in making the planet greener, one purchase at a time.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Twitter">🐦</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="cart.html">Shopping Cart</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Stay Connected</h4>
+                <p>Subscribe to our newsletter for the latest updates on sustainable products and eco-friendly tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+        </div>
     </footer>
 </body>
 
