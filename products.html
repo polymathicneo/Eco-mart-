@@ -1,199 +1,166 @@
 <!DOCTYPE html>
+<!-- Products page -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoMart - Sustainable Products</title>
+    <title>EcoMart | Products</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/cart.js"></script>
-    <script src="js/dynamic-content.js"></script>
-    <style>
-        .product-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            /* or cover, depending on image preference */
-            margin-bottom: var(--spacing-sm);
-            border-radius: 8px;
-        }
-
-        .price {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            font-weight: bold;
-            margin: var(--spacing-xs) 0;
-        }
-
-        .discounted {
-            color: var(--primary-dark);
-        }
-
-        del {
-            color: #999;
-            font-size: 0.9rem;
-            margin-left: 5px;
-        }
-
-        .product-card button {
-            margin-top: auto;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color var(--transition-fast);
-        }
-
-        .product-card button:hover {
-            background-color: var(--primary-dark);
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>EcoMart</h1>
-                <p>Sustainable Lifestyle Products</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html" class="active">Products</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li class="cart-icon">
-                        <a href="cart.html" title="Shopping Cart">🛒</a>
-                        <span id="cart-counter" class="cart-counter"></span>
-                    </li>
-                </ul>
-            </nav>
+
+    <nav class="top-nav">
+        <div class="site-logo">
+            <a href="index.html" style="color: white; text-decoration: none;">EcoMart</a>
         </div>
-    </header>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html" class="current">Products</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <section>
-            <div class="section-title">
-                <h2>Our Products</h2>
-                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">Explore our wide range of eco-friendly
-                    products designed to help you live a sustainable lifestyle.</p>
+    <div class="wrapper">
+        <h1 style="text-align: center; margin: 30px 0;">Our Sustainable Products</h1>
+        <p style="text-align: center; color: #666;">
+            Featuring local Nepal products and eco-friendly items!
+        </p>
+
+        <!-- Products shown in a grid -->
+        <div class="items-grid">
+
+            <!-- Nepal Product 1: Lokta Paper Notebook -->
+            <div class="item-card">
+                <img src="images/lokta-notebook.jpg" alt="Lokta Paper Notebook">
+                <h3>Lokta Paper Notebook</h3>
+                <p>Handmade in Nepal from sustainable lokta bark. Each notebook is unique!</p>
+                <p class="price">
+                    <span class="crossed-price">Rs. 800</span>
+                    <span class="sale">Rs. 650</span>
+                </p>
+                <button class="buy-btn">Add to Cart</button>
             </div>
 
-            <div class="features-grid">
-                <!-- Bamboo Bottle -->
-                <div class="feature-card product-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJizyP8bu9caUxCks8aSyVJB-NeUU2Q29Ifw&s"
-                        alt="Bamboo Bottle">
-                    <h3>Bamboo Bottle</h3>
-                    <p class="price"><span class="discounted">NPR200</span> <del>NPR500</del></p>
-                    <p>Eco-friendly, reusable bamboo water bottle. Keep liquids fresh and stylish.</p>
-                    <button onclick="addToCart('Bamboo Bottle', 'NPR300', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJizyP8bu9caUxCks8aSyVJB-NeUU2Q29Ifw&s')">Add to Cart</button>
-                </div>
-
-                <!-- Organic Tote Bag -->
-                <div class="feature-card product-card">
-                    <img src="https://www.intelligentchange.com/cdn/shop/products/4X5-WebRes-Intelligent-Change-Tote-Bags-1_301b012d-03b9-4917-96ff-e911c5783d56.jpg?v=1671127106&width=200"
-                        alt="Organic Tote Bag">
-                    <h3>Organic Tote Bag</h3>
-                    <p class="price"><span class="discounted">NPR30</span> <del>NPR35</del></p>
-                    <p>Reusable organic cotton tote bag for everyday shopping and carrying essentials.</p>
-                    <button onclick="addToCart('Organic Tote Bag', 'NPR30', 'https://www.intelligentchange.com/cdn/shop/products/4X5-WebRes-Intelligent-Change-Tote-Bags-1_301b012d-03b9-4917-96ff-e911c5783d56.jpg?v=1671127106&width=200')">Add to Cart</button>
-                </div>
-
-                <!-- Silicone Food Bags -->
-                <div class="feature-card product-card">
-                    <img src="https://m.media-amazon.com/images/I/513bUQ5EITL._AC_UF200,200_QL80_.jpg"
-                        alt="Silicone Food Bags">
-                    <h3>Silicone Food Bag</h3>
-                    <p class="price"><span class="discounted">NPR200</span> <del>NPR400</del></p>
-                    <p>Reusable Silicone food bag for packing meals. Washable and durable.</p>
-                    <button onclick="addToCart('Silicone Food Bag', 'NPR20', 'https://m.media-amazon.com/images/I/513bUQ5EITL._AC_UF200,200_QL80_.jpg')">Add to Cart</button>
-                </div>
-
-                <!-- Reusable Coffee Cups -->
-                <div class="feature-card product-card">
-                    <img src="https://img.drz.lazcdn.com/static/np/p/b28c8d7c450fcb26604a0003aae17e4b.jpg_200x200q80.jpg"
-                        alt="Reusable Coffee Cup">
-                    <h3>Reusable Coffee Cup</h3>
-                    <p class="price"><span class="discounted">NPR200</span> <del>NPR350</del></p>
-                    <p>Reusable coffee cup, easy to hold and perfect for enjoying your coffee on the go.</p>
-                    <button onclick="addToCart('Reusable Coffee Cup', 'NPR200', 'https://img.drz.lazcdn.com/static/np/p/b28c8d7c450fcb26604a0003aae17e4b.jpg_200x200q80.jpg')">Add to Cart</button>
-                </div>
-
-                <!-- Dishwashing Brushes -->
-                <div class="feature-card product-card">
-                    <img src="https://econaturalproducts.co.uk/cdn/shop/files/bamboo-dish-brush-long-handle-eco-natural-products-701278.jpg?v=1728498834&width=200"
-                        alt="Dishwashing Brush">
-                    <h3>Bamboo Dish Brush</h3>
-                    <p class="price"><span class="discounted">NPR100</span> <del>NPR200</del></p>
-                    <p>Reusable Dishwashing Brushes with bamboo handles to keep plates clean and bright.</p>
-                    <button onclick="addToCart('Bamboo Dish Brush', 'NPR100', 'https://econaturalproducts.co.uk/cdn/shop/files/bamboo-dish-brush-long-handle-eco-natural-products-701278.jpg?v=1728498834&width=200')">Add to Cart</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>EcoMart</h4>
-                <p>Your premium store for sustainable living products. Join us in making the planet greener, one purchase at a time.</p>
-                <div class="social-links">
-                    <a href="#" title="Facebook">📘</a>
-                    <a href="#" title="Twitter">🐦</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="LinkedIn">💼</a>
-                </div>
+            <!-- Nepal Product 2: Hemp Bag -->
+            <div class="item-card">
+                <img src="images/hemp-bag.jpg" alt="Hemp Bag">
+                <h3>Natural Hemp Bag</h3>
+                <p>100% hemp woven bag, locally made by Nepali artisans. Super durable!</p>
+                <p class="price">
+                    <span class="crossed-price">Rs. 1200</span>
+                    <span class="sale">Rs. 950</span>
+                </p>
+                <button class="buy-btn">Add to Cart</button>
             </div>
 
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="cart.html">Shopping Cart</a></li>
-                </ul>
+            <!-- Nepal Product 3: Pashmina Shawl -->
+            <div class="item-card">
+                <img src="images/pashmina-shawl.jpg" alt="Pashmina Shawl">
+                <h3>Authentic Pashmina Shawl</h3>
+                <p>Soft and warm pashmina wool from the Himalayas. Perfect for cold weather.</p>
+                <p class="price">Rs. 2500</p>
+                <button class="buy-btn">Add to Cart</button>
             </div>
 
-            <div class="footer-section">
-                <h4>Customer Service</h4>
-                <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
+            <!-- Nepal Product 4: Organic Fertilizer -->
+            <div class="item-card">
+                <img src="images/organic-fertilizer.jpg" alt="Organic Fertilizer">
+                <h3>Natural Organic Fertilizer</h3>
+                <p>Locally made compost fertilizer for your garden. No chemicals, all natural!</p>
+                <p class="price">
+                    <span class="crossed-price">Rs. 350</span>
+                    <span class="sale">Rs. 280</span>
+                </p>
+                <button class="buy-btn">Add to Cart</button>
             </div>
 
-            <div class="footer-section">
-                <h4>Stay Connected</h4>
-                <p>Subscribe to our newsletter for the latest updates on sustainable products and eco-friendly tips.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+            <!-- Nepal Product 5: Dhaka Topi -->
+            <div class="item-card">
+                <img src="images/dhaka-topi.jpg" alt="Dhaka Topi">
+                <h3>Traditional Dhaka Topi</h3>
+                <p>Handwoven dhaka fabric hat. Traditional Nepali cultural item.</p>
+                <p class="price">Rs. 450</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- Nepal Product 6: Copper Water Bottle -->
+            <div class="item-card">
+                <img src="images/copper-bottle.jpg" alt="Copper Bottle">
+                <h3>Copper Water Bottle</h3>
+                <p>Traditional copper bottle with health benefits. Handcrafted in Nepal.</p>
+                <p class="price">
+                    <span class="crossed-price">Rs. 1500</span>
+                    <span class="sale">Rs. 1199</span>
+                </p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- Product 7: Bamboo Water Bottle -->
+            <div class="item-card">
+                <img src="images/bamboo-bottle.jpg" alt="Bamboo Water Bottle">
+                <h3>Bamboo Water Bottle</h3>
+                <p>Keep your drinks hot or cold with our insulated bamboo bottle.</p>
+                <p class="price">
+                    <span class="crossed-price">Rs. 3200</span>
+                    <span class="sale">Rs. 2450</span>
+                </p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- Product 8: Organic Tote Bag -->
+            <div class="item-card">
+                <img src="images/cotton-tote.jpg" alt="Organic Tote Bag">
+                <h3>Organic Cotton Tote Bag</h3>
+                <p>Strong reusable bag made from 100% organic cotton.</p>
+                <p class="price">
+                    <span class="crossed-price">Rs. 1550</span>
+                    <span class="sale">Rs. 1100</span>
+                </p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- Product 9: Bamboo Toothbrush -->
+            <div class="item-card">
+                <img src="images/bamboo-toothbrush.jpg" alt="Bamboo Toothbrush">
+                <h3>Bamboo Toothbrush Set</h3>
+                <p>Pack of 4 biodegradable toothbrushes with soft bristles.</p>
+                <p class="price">Rs. 1300</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+
+            <!-- Product 10: Beeswax Wraps -->
+            <div class="item-card">
+                <img src="images/beeswax-wraps.jpg" alt="Beeswax Wraps">
+                <h3>Beeswax Food Wraps</h3>
+                <p>Replace plastic wrap with these reusable beeswax wraps.</p>
+                <p class="price">
+                    <span class="crossed-price">Rs. 1950</span>
+                    <span class="sale">Rs. 1680</span>
+                </p>
+                <button class="buy-btn">Add to Cart</button>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+        <!-- Button to show popup -->
+        <div style="text-align: center; margin: 40px 0;">
+            <p>Click here to see our special offer!</p>
+            <button onclick="showPromo()"
+                style="padding: 10px 20px; background: #FBC02D; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                View Promo
+            </button>
         </div>
+    </div>
+
+    <footer class="bottom">
+        <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, and Arayan</p>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>

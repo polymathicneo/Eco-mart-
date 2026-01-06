@@ -1,224 +1,94 @@
 <!DOCTYPE html>
+<!-- About page -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoMart - About Us</title>
+    <title>EcoMart | About Us</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
-        }
-
-        .team-member {
-            background: white;
-            padding: var(--spacing-md);
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-        }
-
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto var(--spacing-sm);
-            border: 4px solid var(--grey-100);
-        }
-
-        .team-member h3 {
-            color: var(--primary-dark);
-            margin-bottom: 5px;
-        }
-
-        .team-member .role {
-            color: var(--primary-color);
-            font-weight: bold;
-            display: block;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .portfolio-details {
-            text-align: left;
-            margin-top: var(--spacing-sm);
-            font-size: 0.9rem;
-        }
-
-        .portfolio-details h4 {
-            font-size: 1rem;
-            border-bottom: 1px solid var(--grey-200);
-            padding-bottom: 2px;
-            margin-top: 10px;
-        }
-
-        .portfolio-details ul {
-            list-style: disc;
-            padding-left: 20px;
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>EcoMart</h1>
-                <p>Sustainable Lifestyle Products</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html" class="active">About Us</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li class="cart-icon">
-                        <a href="cart.html" title="Shopping Cart">🛒</a>
-                        <span id="cart-counter" class="cart-counter"></span>
-                    </li>
-                </ul>
-            </nav>
+
+    <nav class="top-nav">
+        <div class="site-logo">
+            <a href="index.html" style="color: white; text-decoration: none;">EcoMart</a>
         </div>
-    </header>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="about.html" class="current">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <section>
-            <div class="section-title">
-                <h2>Meet the Team</h2>
-                <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">The minds behind EcoMart.</p>
-            </div>
+    <div class="wrapper">
+        <h1 style="text-align: center; margin: 30px 0;">About Our Team</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 40px;">
+            We're a group of students who made this website for our coursework
+        </p>
 
-            <div class="team-grid">
-                <!-- Shubham Sedai -->
-                <div class="team-member">
-                    <img src="images/WhatsApp Image 2025-12-29 at 6.56.55 PM.jpeg" alt="Shubham Sedai">
-                    <h3>Shubham Sedai</h3>
-                    <span class="role">Lead Developer</span>
-                    <div class="portfolio-details">
-                        <h4>Education</h4>
-                        <p>BSc (Hons) Computing at Itahari International College.</p>
-                        <h4>Technical Skills</h4>
-                        <ul>
-                            <li>HTML5 & CSS3</li>
-                            <li>JavaScript</li>
-                            <li>Database Design</li>
-                        </ul>
-                        <h4>Soft Skills</h4>
-                        <ul>
-                            <li>Team Leadership</li>
-                            <li>Time Management</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Arayan Timalsena -->
-                <div class="team-member">
-                    <img src="images/WhatsApp Image 2025-12-29 at 6.41.36 PM.jpeg" alt="Arayan Timalsena">
-                    <h3>Arayan Timalsena</h3>
-                    <span class="role">UI/UX Designer</span>
-                    <div class="portfolio-details">
-                        <h4>Education</h4>
-                        <p>BSc (Hons) Computing.</p>
-                        <h4>Technical Skills</h4>
-                        <ul>
-                            <li>Web Designing</li>
-                            <li>CSS Animations</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Babisha Karki -->
-                <div class="team-member">
-                    <img src="images/WhatsApp Image 2025-12-29 at 7.02.11 PM.jpeg" alt="Babisha Karki">
-                    <h3>Babisha Karki</h3>
-                    <span class="role">Content Writer</span>
-                    <div class="portfolio-details">
-                        <h4>Education</h4>
-                        <p>BSc (Hons) Computing.</p>
-                        <h4>Technical Skills</h4>
-                        <ul>
-                            <li>Typing</li>
-                            <li>Voice-over Artist</li>
-                            <li>Content Writing</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Monika Khatri -->
-                <div class="team-member">
-                    <img src="images/WhatsApp Image 2025-12-29 at 7.03.19 PM.jpeg" alt="Monika Khatri">
-                    <h3>Monika Khatri</h3>
-                    <span class="role"></span>
-                    <div class="portfolio-details">
-                        <h4>Education</h4>
-                        <p>BSc (Hons) Computing.</p>
-                        <h4>Technical Skills</h4>
-                        <ul>
-                            <li>videographer</li>
-                            <li>Photographer</li>
-                            <li>Market Research</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>EcoMart</h4>
-                <p>Your premium store for sustainable living products. Join us in making the planet greener, one purchase at a time.</p>
-                <div class="social-links">
-                    <a href="#" title="Facebook">📘</a>
-                    <a href="#" title="Twitter">🐦</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="LinkedIn">💼</a>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="cart.html">Shopping Cart</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Customer Service</h4>
-                <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Stay Connected</h4>
-                <p>Subscribe to our newsletter for the latest updates on sustainable products and eco-friendly tips.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+        <!-- First team member -->
+        <div class="person-info">
+            <h2>Shubham Sedai - Lead Developer</h2>
+            <div style="padding: 15px; background: #f1f8e9; border-radius: 5px;">
+                <p><strong>What I'm Good At:</strong> HTML, CSS, JavaScript, setting up the project structure</p>
+                <p><strong>Skills:</strong> Problem solving, team coordination, debugging code</p>
+                <p><strong>Education:</strong> BSc (Hons) Computing student</p>
+                <p><strong>My Part:</strong> I handled most of the coding and made sure everything worked together
+                    properly.
+                    Also helped the team whenever they got stuck with technical stuff.</p>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+        <!-- Second team member -->
+        <div class="person-info">
+            <h2>Monika Khatri - Designer & Researcher</h2>
+            <div style="padding: 15px; background: #e8f5e9; border-radius: 5px;">
+                <p><strong>What I'm Good At:</strong> Design, color selection, layout planning</p>
+                <p><strong>Skills:</strong> Creative thinking, research, attention to detail</p>
+                <p><strong>Education:</strong> BSc (Hons) Computing student</p>
+                <p><strong>My Part:</strong> I designed how the website looks and picked the colors. Also did the
+                    research
+                    on other eco-friendly websites to see what we could learn from them.</p>
+            </div>
         </div>
+
+        <!-- Third team member -->
+        <div class="person-info">
+            <h2>Babisha Karki - Content Writer</h2>
+            <div style="padding: 15px; background: #f1f8e9; border-radius: 5px;">
+                <p><strong>What I'm Good At:</strong> Writing, proofreading, organizing information</p>
+                <p><strong>Skills:</strong> Communication, creativity, SEO basics</p>
+                <p><strong>Education:</strong> BSc (Hons) Computing student</p>
+                <p><strong>My Part:</strong> I wrote all the text content for the website, including product
+                    descriptions
+                    and the blog article about technology. Made sure everything sounded natural and easy to read.</p>
+            </div>
+        </div>
+
+        <!-- Fourth team member -->
+        <div class="person-info">
+            <h2>Arayan Timalsena - Testing & Documentation</h2>
+            <div style="padding: 15px; background: #e8f5e9; border-radius: 5px;">
+                <p><strong>What I'm Good At:</strong> Testing, finding bugs, writing documentation</p>
+                <p><strong>Skills:</strong> Detail-oriented, patient, good at following procedures</p>
+                <p><strong>Education:</strong> BSc (Hons) Computing student</p>
+                <p><strong>My Part:</strong> I tested the website on different browsers and devices to make sure it
+                    works everywhere.
+                    Also helped with documenting our process and what we learned.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bottom">
+        <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, and Arayan</p>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>

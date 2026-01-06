@@ -1,196 +1,109 @@
 <!DOCTYPE html>
-<!-- EcoMart Website - Home Page -->
-<!-- Created by: Shubham Sedai, Monika Khatri, Babisha Karki, Arayan Timalsena -->
-<!-- Coursework for Introduction to Information Systems -->
+<!-- Homepage for our EcoMart project -->
 <html lang="en">
 
 <head>
-    <!-- Meta tags for proper HTML structure and SEO -->
+    <!-- These meta tags help with SEO and make the site work on mobile -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EcoMart - Your premium store for sustainable living products">
-    <meta name="author" content="Shubham Sedai, Monika Khatri, Babisha Karki, Arayan Timalsena">
-    <title>EcoMart - Sustainable Living</title>
+    <meta name="description" content="EcoMart - Buy sustainable products like bamboo bottles and organic bags">
+    <meta name="keywords" content="eco-friendly, sustainable, bamboo, organic">
 
+    <title>EcoMart | Home</title>
+
+    <!-- External CSS file that we made -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Some internal CSS just for this page -->
     <style>
-        /* Internal CSS for Index Page - Hero Section Customization */
         .hero {
-            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
-            padding: 4rem 2rem;
+            background-color: #e8f5e9;
+            padding: 50px 20px;
             text-align: center;
-            border-bottom-right-radius: 50px;
-            border-bottom-left-radius: 50px;
-            margin-bottom: 4rem;
+            border-bottom: 3px solid #2e7d32;
         }
 
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: #FBC02D;
-            color: #2E7D32;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: white;
-            transform: translateY(-3px);
-        }
-
-        /* Features Grid Customization */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
+        .hero h1 {
+            color: #1b5e20;
+            font-size: 2.2rem;
         }
     </style>
-    <script src="js/dynamic-content.js"></script>
+</head>
 
 <body>
 
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>EcoMart</h1>
-                <p>Sustainable Lifestyle Products</p>
-            </div>
-
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li class="cart-icon">
-                        <a href="cart.html" title="Shopping Cart">🛒</a>
-                        <span id="cart-counter" class="cart-counter"></span>
-                    </li>
-                </ul>
-            </nav>
+    <!-- Top menu with logo and links -->
+    <nav class="top-nav">
+        <div class="site-logo">
+            <a href="index.html" style="color: white; text-decoration: none;">EcoMart</a>
         </div>
-    </header>
+        <ul class="menu">
+            <li><a href="index.html" class="current">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
+    <!-- Big welcome section using inline styles as required -->
     <div class="hero">
-        <h2 style="font-size: 3rem; margin-bottom: 1rem; color: white;">Welcome to EcoMart</h2>
-        <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem; opacity: 0.9;">Providing sustainable alternatives for everyday living. Join us in making the planet greener, one purchase at
-            a time.</p>
-        <a href="products.html" class="btn" style="display: inline-block; background-color: #FBC02D; color: #2E7D32; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold;">Shop Now</a>
+        <h1>Welcome to EcoMart</h1>
+        <p style="font-size: 1.1rem; margin: 20px 0;">
+            Shop for sustainable products and help save the environment!
+        </p>
+        <!-- Yellow button with inline styling -->
+        <a href="products.html"
+            style="background: #FBC02D; color: #1b5e20; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block;">
+            Browse Products
+        </a>
     </div>
 
-    <main>
-        <section id="overview">
-            <h2 class="section-title">Explore Our Site</h2>
+    <!-- Main stuff on the page -->
+    <div class="wrapper">
+        <h2 style="text-align: center; margin: 30px 0;">What We Offer</h2>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Eco-Friendly Products</h3>
-                    <p>Discover our range of bamboo water bottles, organic cotton tote bags, and solar-powered gadgets
-                        at competitive prices.</p>
-                    <a href="products.html" class="feature-link">View Products &rarr;</a>
-                </div>
-
-                <div class="feature-card">
-                    <h3>Latest Blog</h3>
-                    <p>Read our latest article on "How Technology Affects Daily Life" and the future of green tech.</p>
-                    <a href="blog.html" class="feature-link">Read Articles &rarr;</a>
-                </div>
-
-                <div class="feature-card">
-                    <h3>About Us</h3>
-                    <p>Meet our development team, check out our skills portfolio, and see who built this project.</p>
-                    <a href="about.html" class="feature-link">Meet the Team &rarr;</a>
-                </div>
-
-                <div class="feature-card">
-                    <h3>Research & Analysis</h3>
-                    <p>View our comparative analysis of other e-commerce websites and design references.</p>
-                    <a href="research.html" class="feature-link">View Research &rarr;</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>EcoMart</h4>
-                <p>Your premium store for sustainable living products. Join us in making the planet greener, one purchase at a time.</p>
-                <div class="social-links">
-                    <a href="#" title="Facebook">📘</a>
-                    <a href="#" title="Twitter">🐦</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="LinkedIn">💼</a>
-                </div>
+        <!-- Info boxes about different sections -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h3 style="color: #2e7d32;">Eco Products</h3>
+                <p>We sell bamboo bottles, organic bags, and other sustainable items.</p>
+                <a href="products.html" style="color: #2e7d32; font-weight: bold;">See Products →</a>
             </div>
 
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="cart.html">Shopping Cart</a></li>
-                </ul>
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h3 style="color: #2e7d32;">Our Blog</h3>
+                <p>Learn about how technology affects our daily lives and the environment.</p>
+                <a href="blog.html" style="color: #2e7d32; font-weight: bold;">Read Blog →</a>
             </div>
 
-            <div class="footer-section">
-                <h4>Customer Service</h4>
-                <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Stay Connected</h4>
-                <p>Subscribe to our newsletter for the latest updates on sustainable products and eco-friendly tips.</p>
-                <form class="newsletter-form" onsubmit="handleNewsletterSubscription(event)">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h3 style="color: #2e7d32;">About Our Team</h3>
+                <p>Meet the students who built this website for our coursework.</p>
+                <a href="about.html" style="color: #2e7d32; font-weight: bold;">Meet Us →</a>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+        <!-- Image tag required for assignment -->
+        <div style="margin: 40px 0; text-align: center;">
+            <img src="images/eco-lifestyle.jpg" alt="Eco-friendly lifestyle"
+                style="max-width: 100%; border-radius: 10px;">
+            <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">Living sustainably makes a difference</p>
         </div>
+    </div>
+
+    <!-- Footer at bottom -->
+    <footer class="bottom">
+        <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, and Arayan</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">
+            <a href="contact.html">Contact Us</a> |
+            <a href="research.html">Research</a>
+        </p>
     </footer>
 
+    <!-- JavaScript file -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>

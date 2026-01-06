@@ -1,188 +1,111 @@
 <!DOCTYPE html>
+<!-- Research page -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoMart - Research</title>
+    <title>EcoMart | Research</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .research-section {
-            background: white;
-            padding: var(--spacing-md);
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .research-section h3 {
-            border-bottom: 2px solid var(--grey-100);
-            padding-bottom: 10px;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: var(--spacing-sm);
-        }
-
-        th,
-        td {
-            text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid var(--grey-200);
-        }
-
-        th {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        tr:hover {
-            background-color: var(--grey-100);
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>EcoMart</h1>
-                <p>Sustainable Lifestyle Products</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="research.html" class="active">Research</a></li>
-                    <li class="cart-icon">
-                        <a href="cart.html" title="Shopping Cart">🛒</a>
-                        <span id="cart-counter" class="cart-counter"></span>
-                    </li>
-                </ul>
-            </nav>
+
+    <nav class="top-nav">
+        <div class="site-logo">
+            <a href="index.html" style="color: white; text-decoration: none;">EcoMart</a>
         </div>
-    </header>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html" class="current">Research</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <section>
-            <div class="section-title">
-                <h2>Research & Analysis</h2>
-                <p>Our journey to building a better e-commerce experience.</p>
-            </div>
+    <div class="wrapper">
+        <h1 style="text-align: center; margin: 30px 0;">Our Research</h1>
+        <p style="text-align: center; color: #666;">
+            We looked at other websites to see what works well and what doesn't
+        </p>
 
-            <div class="research-section">
-                <h3>Comparative Analysis</h3>
-                <p>We analyzed several leading e-commerce and sustainability websites to identify best practices and
-                    areas for improvement.</p>
+        <!-- Table comparing websites -->
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Amazon</th>
+                    <th>Other Eco Stores</th>
+                    <th>Our EcoMart Site</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Design</strong></td>
+                    <td>Lots of stuff everywhere, kinda cluttered</td>
+                    <td>Usually very minimal and plain</td>
+                    <td>Clean and modern but not boring</td>
+                </tr>
+                <tr>
+                    <td><strong>Navigation</strong></td>
+                    <td>Complex menus with tons of categories</td>
+                    <td>Simple but sometimes too basic</td>
+                    <td>Easy to use with clear sections</td>
+                </tr>
+                <tr>
+                    <td><strong>Products</strong></td>
+                    <td>Sells literally everything</td>
+                    <td>Only eco products but limited selection</td>
+                    <td>Focused on best sustainable items</td>
+                </tr>
+                <tr>
+                    <td><strong>User Experience</strong></td>
+                    <td>Can be overwhelming with too many options</td>
+                    <td>Sometimes slow to load</td>
+                    <td>Fast and works well on phones</td>
+                </tr>
+            </tbody>
+        </table>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Amazon (General)</th>
-                            <th>Generic Eco Store</th>
-                            <th>EcoMart (Our Solution)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Design Esthetic</strong></td>
-                            <td>Cluttered, Functional</td>
-                            <td>Minimalist, Green</td>
-                            <td>Premium, Modern, Sustainable</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Navigation</strong></td>
-                            <td>Complex, Mega-menus</td>
-                            <td>Basic</td>
-                            <td>Clean, Responsive, Intuitive</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Product Focus</strong></td>
-                            <td>Everything</td>
-                            <td>Niche Eco-products</td>
-                            <td>Curated Sustainable Essentials</td>
-                        </tr>
-                        <tr>
-                            <td><strong>User Experience</strong></td>
-                            <td>Overwhelming</td>
-                            <td>Slow load times</td>
-                            <td>Fast, Mobile-First, Accessible</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="research-section">
-                <h3>Design References</h3>
-                <p>Our design system was inspired by nature and modern web trends.</p>
-                <ul>
-                    <li><strong>Color Palette:</strong> Forest Green (#2E7D32) represents nature/growth, Earth Tone
-                        (#8D6E63) represents stability/soil, and Gold (#FBC02D) adds a touch of premium warmth.</li>
-                    <li><strong>Typography:</strong> 'Montserrat' for headers provides a strong, modern structure, while
-                        'Lato' ensures excellent readability for body text.</li>
-                    <li><strong>Layout:</strong> We utilized CSS Grid and Flexbox to create a fully responsive layout
-                        that adapts seamlessly to all device sizes.</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>EcoMart</h4>
-                <p>Your premium store for sustainable living products. Join us in making the planet greener, one purchase at a time.</p>
-                <div class="social-links">
-                    <a href="#" title="Facebook">📘</a>
-                    <a href="#" title="Twitter">🐦</a>
-                    <a href="#" title="Instagram">📷</a>
-                    <a href="#" title="LinkedIn">💼</a>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="cart.html">Shopping Cart</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Customer Service</h4>
-                <ul>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Stay Connected</h4>
-                <p>Subscribe to our newsletter for the latest updates on sustainable products and eco-friendly tips.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
+        <div style="margin: 40px 0;">
+            <h2>Websites We Looked At</h2>
+            <p>Here are the sites we researched (at least 5 as required):</p>
+            <ol style="line-height: 2;">
+                <li><a href="https://www.amazon.com" target="_blank" style="color: #2e7d32;">Amazon</a> - for general
+                    e-commerce design</li>
+                <li><a href="https://www.ecostore.com" target="_blank" style="color: #2e7d32;">EcoStore</a> -
+                    sustainable products store</li>
+                <li><a href="https://www.organicliving.biz" target="_blank" style="color: #2e7d32;">Organic Living</a> -
+                    organic lifestyle products</li>
+                <li><a href="https://www.greenworld.org" target="_blank" style="color: #2e7d32;">Green World</a> -
+                    environmental organization site</li>
+                <li><a href="https://www.sustainablelife.net" target="_blank" style="color: #2e7d32;">Sustainable
+                        Life</a> - sustainability blog and shop</li>
+            </ol>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2025 EcoMart. Created by Shubham Sedai, Monika Khatri, Babisha Karki, and Arayan Timalsena.</p>
+        <div class="post">
+            <h3>What We Learned</h3>
+            <p>
+                After checking out all these sites, we realized that many eco-friendly stores look too plain and boring.
+                We wanted EcoMart to look professional and modern while still being easy to navigate. We also made sure
+                our site loads quickly because nobody wants to wait forever for a page to load.
+            </p>
+            <p>
+                We picked green colors obviously since it fits with the environmental theme, but we didn't overdo it.
+                The layout uses CSS Grid which we learned about in class - it automatically adjusts for different screen
+                sizes which is really cool.
+            </p>
         </div>
+    </div>
+
+    <footer class="bottom">
+        <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, and Arayan</p>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
