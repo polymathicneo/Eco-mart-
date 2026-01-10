@@ -272,3 +272,9 @@ body {
 .bottom a:hover {
     color: white;
 }
+img {
+    max-width:auto;
+    height: auto;
+    display: block;
+    margin : auto;
+}

@@ -1,0 +1,66 @@
+<svg width="800" height="1200" viewBox="0 0 800 1200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="1200" fill="#f4f4f4" />
+  
+  <!-- Header / Nav -->
+  <rect x="0" y="0" width="800" height="60" fill="#333" />
+  <text x="20" y="40" font-family="Arial, sans-serif" font-size="24" fill="white">EcoMart Logo</text>
+  <text x="350" y="35" font-family="Arial, sans-serif" font-size="14" fill="white">Home    Products    Blog    Research    About Us    Contact</text>
+  <line x1="600" y1="45" x2="660" y2="45" stroke="white" stroke-width="2" /> <!-- Active indicator -->
+  
+  <!-- Page Title -->
+  <text x="400" y="120" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#333" text-anchor="middle">About Our Team</text>
+  <text x="400" y="150" font-family="Arial, sans-serif" font-size="16" fill="#666" text-anchor="middle">A student project for coursework</text>
+  
+  <!-- Team member 1: Shubham Sedai -->
+  <rect x="50" y="200" width="700" height="200" fill="white" stroke="#ccc" rx="10" />
+  <rect x="70" y="220" width="160" height="160" fill="#eee" stroke="#999" />
+  <line x1="70" y1="220" x2="230" y2="380" stroke="#999" />
+  <line x1="70" y1="380" x2="230" y2="220" stroke="#999" />
+  <text x="250" y="250" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">Shubham Sedai</text>
+  <text x="250" y="275" font-family="Arial, sans-serif" font-size="16" fill="#2e7d32">Lead Developer</text>
+  <text x="250" y="310" font-family="Arial, sans-serif" font-size="14" fill="#666">What I'm Good At: HTML, CSS, JavaScript</text>
+  <text x="250" y="330" font-family="Arial, sans-serif" font-size="14" fill="#666">Skills: Problem solving, Team coordination</text>
+  <text x="250" y="350" font-family="Arial, sans-serif" font-size="14" fill="#666">Education: BSc (Hons) Computing</text>
+  <text x="250" y="370" font-family="Arial, sans-serif" font-size="14" fill="#666">My Part: Core coding and architecture</text>
+  
+  <!-- Team member 2: Monika Khatri -->
+  <rect x="50" y="420" width="700" height="200" fill="#f9f9f9" stroke="#ccc" rx="10" />
+  <rect x="70" y="440" width="160" height="160" fill="#eee" stroke="#999" />
+  <line x1="70" y1="440" x2="230" y2="600" stroke="#999" />
+  <line x1="70" y1="600" x2="230" y2="440" stroke="#999" />
+  <text x="250" y="470" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">Monika Khatri</text>
+  <text x="250" y="495" font-family="Arial, sans-serif" font-size="16" fill="#2e7d32">Designer &amp; Researcher</text>
+  <text x="250" y="530" font-family="Arial, sans-serif" font-size="14" fill="#666">What I'm Good At: Layout planning, UI Design</text>
+  <text x="250" y="550" font-family="Arial, sans-serif" font-size="14" fill="#666">Skills: Creative thinking, Market research</text>
+  <text x="250" y="570" font-family="Arial, sans-serif" font-size="14" fill="#666">Education: BSc (Hons) Computing</text>
+  <text x="250" y="590" font-family="Arial, sans-serif" font-size="14" fill="#666">My Part: UI design and competitor research</text>
+  
+  <!-- Team member 3: Babisha Karki -->
+  <rect x="50" y="640" width="700" height="200" fill="white" stroke="#ccc" rx="10" />
+  <rect x="70" y="660" width="160" height="160" fill="#eee" stroke="#999" />
+  <line x1="70" y1="660" x2="230" y2="820" stroke="#999" />
+  <line x1="70" y1="820" x2="230" y2="660" stroke="#999" />
+  <text x="250" y="690" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">Babisha Karki</text>
+  <text x="250" y="715" font-family="Arial, sans-serif" font-size="16" fill="#2e7d32">Content Writer</text>
+  <text x="250" y="750" font-family="Arial, sans-serif" font-size="14" fill="#666">What I'm Good At: Writing, SEO basics</text>
+  <text x="250" y="770" font-family="Arial, sans-serif" font-size="14" fill="#666">Skills: Communication, Organization</text>
+  <text x="250" y="790" font-family="Arial, sans-serif" font-size="14" fill="#666">Education: BSc (Hons) Computing</text>
+  <text x="250" y="810" font-family="Arial, sans-serif" font-size="14" fill="#666">My Part: Website text and product descriptions</text>
+  
+  <!-- Team member 4: Arayan Timalsena -->
+  <rect x="50" y="860" width="700" height="200" fill="#f9f9f9" stroke="#ccc" rx="10" />
+  <rect x="70" y="880" width="160" height="160" fill="#eee" stroke="#999" />
+  <line x1="70" y1="880" x2="230" y2="1040" stroke="#999" />
+  <line x1="70" y1="1040" x2="230" y2="880" stroke="#999" />
+  <text x="250" y="910" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">Arayan Timalsena</text>
+  <text x="250" y="935" font-family="Arial, sans-serif" font-size="16" fill="#2e7d32">Testing &amp; Documentation</text>
+  <text x="250" y="970" font-family="Arial, sans-serif" font-size="14" fill="#666">What I'm Good At: QA Testing, Documentation</text>
+  <text x="250" y="990" font-family="Arial, sans-serif" font-size="14" fill="#666">Skills: Attention to detail, Patience</text>
+  <text x="250" y="1010" font-family="Arial, sans-serif" font-size="14" fill="#666">Education: BSc (Hons) Computing</text>
+  <text x="250" y="1030" font-family="Arial, sans-serif" font-size="14" fill="#666">My Part: Quality assurance and process docs</text>
+  
+  <!-- Footer -->
+  <rect x="0" y="1140" width="800" height="60" fill="#333" />
+  <text x="400" y="1175" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">© 2026 EcoMart | Made by Shubham, Monika, Babisha, and Arayan</text>
+</svg>
