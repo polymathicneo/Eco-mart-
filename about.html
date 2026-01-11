@@ -7,6 +7,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoMart | About Us</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Team Section Styling */
+        .team-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.03) 0%, rgba(46, 125, 50, 0.03) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h1 {
+            font-size: 2.8rem;
+            color: #1b5e20;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #4a7c3e;
+            font-weight: 500;
+        }
+
+        .team-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .person-info {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7f0 100%);
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 2px solid rgba(46, 125, 50, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .person-info:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(27, 94, 32, 0.2);
+            border-color: rgba(46, 125, 50, 0.3);
+        }
+
+        .person-image-wrapper {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .person-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: center 20%;
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .person-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .person-info h2 {
+            color: #1b5e20;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .person-role {
+            color: #2e7d32;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .person-info p {
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .person-info strong {
+            color: #1b5e20;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+            color: #1b5e20;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+
+            .person-image-wrapper {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+            }
+
+            .section-header h1 {
+                font-size: 2rem;
+            }
+
+            .person-image-wrapper {
+                height: 240px;
+            }
+
+            .person-content {
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .person-info h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .person-image-wrapper {
+                height: 220px;
+            }
+
+            .person-content {
+                padding: 18px;
+            }
+
+            .person-info h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -25,64 +213,87 @@
         </ul>
     </nav>
 
-    <div class="wrapper">
-        <h1 style="text-align: center; margin: 30px 0;">About Our Team</h1>
-        <p style="text-align: center; color: #666; margin-bottom: 40px;">
-            We're a group of students who made this website for our coursework
-        </p>
-
-        <!-- First team member -->
-        <div class="person-info">
-            <h2>Shubham Sedai - Lead Developer</h2>
-            <div style="padding: 15px; background: #f1f8e9; border-radius: 5px;">
-                <img src="images\WhatsApp Image 2025-12-29 at 6.56.55 PM.jpeg" alt="Shubham Sedai">
-                <p><strong>What I'm Good At:</strong> HTML, CSS, JavaScript, setting up the project structure</p>
-                <p><strong>Skills:</strong> Problem solving, team coordination, debugging code</p>
-                <p><strong>Education:</strong> BSc (Hons) Computing student</p>
-                <p><strong>My Part:</strong> I handled most of the coding and made sure everything worked together
-                    properly.
-                    Also helped the team whenever they got stuck with technical stuff.</p>
-            </div>
+    <div class="team-section">
+        <div class="section-header">
+            <h1>Meet Our Team</h1>
+            <p>A dedicated group of students working together for the environment</p>
         </div>
 
-        <!-- Second team member -->
-        <div class="person-info">
-            <h2>Monika Khatri - Designer & Researcher</h2>
-            <div style="padding: 15px; background: #e8f5e9; border-radius: 5px;">
-                <img src="images\WhatsApp Image 2025-12-29 at 7.03.19 PM.jpeg" alt="Monika Khatri">
-                <p><strong>What I'm Good At:</strong> Design, color selection, layout planning</p>
-                <p><strong>Skills:</strong> Creative thinking, research, attention to detail</p>
-                <p><strong>Education:</strong> BSc (Hons) Computing student</p>
-                <p><strong>My Part:</strong> I designed how the website looks and picked the colors. Also did the
-                    research
-                    on other eco-friendly websites to see what we could learn from them.</p>
+        <div class="team-grid">
+            <!-- First team member -->
+            <div class="person-info">
+                <div class="person-image-wrapper">
+                    <img src="images\WhatsApp Image 2025-12-29 at 6.56.55 PM.jpeg" alt="Shubham Sedai" class="person-image">
+                </div>
+                <div class="person-content">
+                    <h2>Shubham Sedai</h2>
+                    <span class="person-role">Lead Developer</span>
+                    <p><strong>Expertise:</strong> HTML, CSS, JavaScript, Project Structure</p>
+                    <p><strong>Education:</strong> BSc (Hons) Computing</p>
+                    <p>Handled most of the coding and ensured everything worked together properly. Supported the team with technical guidance and debugging.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Third team member -->
-        <div class="person-info">
-            <h2>Babisha Karki - Content Writer</h2>
-            <div style="padding: 15px; background: #f1f8e9; border-radius: 5px;">
-                <img src="images\WhatsApp Image 2025-12-29 at 7.02.11 PM.jpeg" alt="babisha karki">
-                <p><strong>What I'm Good At:</strong> Writing, proofreading, organizing information</p>
-                <p><strong>Skills:</strong> Communication, creativity, SEO basics</p>
-                <p><strong>Education:</strong> BSc (Hons) Computing student</p>
-                <p><strong>My Part:</strong> I wrote all the text content for the website, including product
-                    descriptions
-                    and the blog article about technology. Made sure everything sounded natural and easy to read.</p>
+            <!-- Second team member -->
+            <div class="person-info">
+                <div class="person-image-wrapper">
+                    <img src="images\WhatsApp Image 2025-12-29 at 7.03.19 PM.jpeg" alt="Monika Khatri" class="person-image">
+                </div>
+                <div class="person-content">
+                    <h2>Monika Khatri</h2>
+                    <span class="person-role">Designer & Researcher</span>
+                    <p><strong>Expertise:</strong> UI/UX Design, Color Theory, Layout Planning</p>
+                    <p><strong>Education:</strong> BSc (Hons) Computing</p>
+                    <p>Designed the visual layout and selected the color scheme. Researched eco-friendly websites to gather design inspiration and best practices.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">UI Design</span>
+                        <span class="skill-tag">Research</span>
+                        <span class="skill-tag">Color Theory</span>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Fourth team member -->
-        <div class="person-info">
-            <h2>Arayan Timalsena - Testing & Documentation</h2>
-            <div style="padding: 15px; background: #e8f5e9; border-radius: 5px;">
-                <p><strong>What I'm Good At:</strong> Testing, finding bugs, writing documentation</p>
-                <p><strong>Skills:</strong> Detail-oriented, patient, good at following procedures</p>
-                <p><strong>Education:</strong> BSc (Hons) Computing student</p>
-                <p><strong>My Part:</strong> I tested the website on different browsers and devices to make sure it
-                    works everywhere.
-                    Also helped with documenting our process and what we learned.</p>
+            <!-- Third team member -->
+            <div class="person-info">
+                <div class="person-image-wrapper">
+                    <img src="images\WhatsApp Image 2025-12-29 at 7.02.11 PM.jpeg" alt="Babisha Karki" class="person-image">
+                </div>
+                <div class="person-content">
+                    <h2>Babisha Karki</h2>
+                    <span class="person-role">Content Writer</span>
+                    <p><strong>Expertise:</strong> Writing, Proofreading, SEO Basics</p>
+                    <p><strong>Education:</strong> BSc (Hons) Computing</p>
+                    <p>Created all text content including product descriptions and blog articles. Ensured all content was clear, engaging, and easy to read.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Writing</span>
+                        <span class="skill-tag">SEO</span>
+                        <span class="skill-tag">Editing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fourth team member -->
+            <div class="person-info">
+                <div class="person-image-wrapper">
+                    <img src="images\WhatsApp Image 2025-12-29 at 6.41.36 PM.jpeg" alt="Arayan Timalsena" class="person-image">
+                </div>
+                <div class="person-content">
+                    <h2>Arayan Timalsena</h2>
+                    <span class="person-role">Testing & Documentation</span>
+                    <p><strong>Expertise:</strong> QA Testing, Bug Detection, Documentation</p>
+                    <p><strong>Education:</strong> BSc (Hons) Computing</p>
+                    <p>Tested the website across different browsers and devices. Documented the development process and key learnings throughout the project.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Testing</span>
+                        <span class="skill-tag">Documentation</span>
+                        <span class="skill-tag">QA</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

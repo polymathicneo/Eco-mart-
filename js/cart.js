@@ -22,7 +22,7 @@ function addToCart(productName, price, imageSrc) {
         // Add new item to cart
         cart.push({
             name: productName,
-            price: parseFloat(price.replace('NPR', '')), // Extract numeric price
+            price: parseFloat(price.replace(/NPR|Rs\.?\s*/g, '')), // Extract numeric price
             image: imageSrc,
             quantity: 1
         });

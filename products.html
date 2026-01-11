@@ -22,6 +22,10 @@
             <li><a href="research.html">Research</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li class="cart-icon">
+                <a href="cart.html" title="Shopping Cart">🛒</a>
+                <span id="cart-counter" class="cart-counter"></span>
+            </li>
         </ul>
     </nav>
 
@@ -160,7 +164,31 @@
         <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, and Arayan</p>
     </footer>
 
+    <script src="js/cart.js"></script>
+    <script src="js/dynamic-content.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+        // Add click handlers to Add to Cart buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.buy-btn');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemCard = button.closest('.item-card');
+                    const productName = itemCard.querySelector('h3').textContent;
+                    const imgSrc = itemCard.querySelector('img').src;
+                    const priceElement = itemCard.querySelector('.price');
+
+                    // Get the sale price if it exists, otherwise get the regular price
+                    const salePrice = priceElement.querySelector('.sale');
+                    const price = salePrice ? salePrice.textContent : priceElement.textContent;
+
+                    addToCart(productName, price, imgSrc);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

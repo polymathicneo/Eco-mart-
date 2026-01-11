@@ -6,6 +6,866 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoMart - Shopping Cart</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Cart Page Styles */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.05) 0%, rgba(27, 94, 32, 0.05) 100%);
+            border-radius: 16px;
+            border-top: 4px solid #2e7d32;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #1b5e20, #2e7d32);
+            border-radius: 2px;
+        }
+
+        .section-title h2 {
+            color: #1b5e20;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title p {
+            color: #4a7c3e;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .cart-container {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            margin-top: 30px;
+            align-items: start;
+        }
+
+        #cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7f0 100%);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.1);
+            border-left: 5px solid #2e7d32;
+            transition: all 0.3s ease;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cart-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1b5e20, #2e7d32, #4caf50);
+            opacity: 0.6;
+        }
+
+        .cart-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(27, 94, 32, 0.2);
+            background: linear-gradient(135deg, #ffffff 0%, #e8f5e9 100%);
+        }
+
+        .cart-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-right: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 3px solid #e8f5e9;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details h3 {
+            color: #1b5e20;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .cart-item-details p {
+            color: #4a7c3e;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #f0f7f0, #e8f5e9);
+            padding: 10px 15px;
+            border-radius: 10px;
+            width: fit-content;
+        }
+
+        .quantity-btn {
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+        }
+
+        .quantity-btn:hover {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.5);
+        }
+
+        .quantity-btn:active {
+            transform: scale(0.95);
+        }
+
+        .quantity-controls span {
+            font-weight: bold;
+            min-width: 85px;
+            text-align: center;
+            color: #1b5e20;
+            font-size: 1rem;
+        }
+
+        .cart-item-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #1b5e20;
+            margin: 0 25px;
+            min-width: 110px;
+            text-align: right;
+            background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+            padding: 12px 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.15);
+        }
+
+        .remove-btn {
+            background: linear-gradient(135deg, #ef5350, #f44336);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+            font-size: 0.95rem;
+        }
+
+        .remove-btn:hover {
+            background: linear-gradient(135deg, #d32f2f, #c62828);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(244, 67, 54, 0.5);
+        }
+
+        .remove-btn:active {
+            transform: translateY(0);
+        }
+
+        .cart-summary {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7f0 100%);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            border-top: 5px solid #2e7d32;
+            transition: all 0.3s ease;
+        }
+
+        .cart-summary:hover {
+            box-shadow: 0 8px 25px rgba(27, 94, 32, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .cart-summary h3 {
+            color: #1b5e20;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #1b5e20;
+            margin-bottom: 25px;
+            padding: 18px;
+            background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.15);
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+        }
+
+        .checkout-btn:hover {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(46, 125, 50, 0.4);
+        }
+
+        .checkout-btn:active {
+            transform: translateY(0);
+        }
+
+        .empty-cart {
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7f0 100%);
+            border-radius: 16px;
+            padding: 80px 40px;
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.1);
+            grid-column: 1 / -1;
+            border: 2px dashed #2e7d32;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .empty-cart::before {
+            content: '🛒';
+            display: block;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-cart h3 {
+            color: #1b5e20;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .empty-cart p {
+            color: #4a7c3e;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .continue-shopping {
+            display: inline-block;
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+            font-size: 1rem;
+        }
+
+        .continue-shopping:hover {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(46, 125, 50, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+
+            .cart-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .cart-item img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .cart-item-price {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .quantity-controls {
+                justify-content: center;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .footer-container {
+                gap: 30px;
+                padding: 30px 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 12px 15px;
+            }
+
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+                padding: 5px 8px;
+            }
+
+            .cart-item {
+                padding: 15px;
+            }
+
+            .cart-item img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .cart-summary {
+                padding: 20px;
+            }
+
+            .empty-cart {
+                padding: 40px 20px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 25px 15px;
+            }
+
+            .footer-section h4 {
+                font-size: 1.1rem;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
+
+            .section-title {
+                padding: 20px 15px;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-header h2 {
+            color: #1b5e20;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .modal-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .checkout-summary {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .checkout-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .checkout-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #1b5e20;
+            padding-top: 15px;
+        }
+
+        .checkout-item-name {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .checkout-item-price {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .modal-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .modal-btn-primary {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+        }
+
+        .modal-btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .modal-btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .success-icon {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            padding: 5px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .logo h1 {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo p {
+            color: #c8e6c9;
+            font-size: 0.9rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c8e6c9;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #c8e6c9;
+            background: rgba(200, 230, 201, 0.1);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cart-icon a {
+            font-size: 1.4rem;
+            padding: 10px;
+            background: rgba(200, 230, 201, 0.2);
+            border-radius: 8px;
+        }
+
+        .cart-icon a:hover {
+            background: rgba(200, 230, 201, 0.3);
+        }
+
+        .cart-counter {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #d32f2f;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #1b5e20 0%, #0d3a1a 100%);
+            color: white;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 50px 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            color: #c8e6c9;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section p {
+            color: #a8d5a8;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #a8d5a8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-section a:hover {
+            color: #c8e6c9;
+            padding-left: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(200, 230, 201, 0.2);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(200, 230, 201, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 8px rgba(200, 230, 201, 0.5);
+        }
+
+        .newsletter-form button {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter-form button:hover {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            color: #a8d5a8;
+            text-align: center;
+            padding: 25px 30px;
+            border-top: 1px solid rgba(200, 230, 201, 0.2);
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Modal Styles */
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
+            }
+
+            .modal-btn {
+                width: 100%;
+            }
+        }
+    </style>
     <script src="js/cart.js"></script>
     <script src="js/dynamic-content.js"></script>
 </head>
@@ -61,6 +921,45 @@
             </div>
         </section>
     </main>
+
+    <!-- Checkout Confirmation Modal -->
+    <div id="checkout-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('checkout-modal')">&times;</button>
+            <div class="modal-header">
+                <h2>Confirm Your Order</h2>
+                <p>Please review your order details before proceeding</p>
+            </div>
+            <div id="checkout-summary" class="checkout-summary">
+                <!-- Order items will be populated here -->
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('checkout-modal')">Cancel</button>
+                <button class="modal-btn modal-btn-primary" onclick="confirmPurchase()">Confirm Purchase</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal('success-modal')">&times;</button>
+            <div class="modal-header">
+                <div class="success-icon">✅</div>
+                <h2>Order Successful!</h2>
+                <p>Your purchase has been completed successfully</p>
+            </div>
+            <div class="checkout-summary">
+                <p style="text-align: center; margin: 0;">Thank you for shopping with EcoMart!</p>
+                <p style="text-align: center; margin: 10px 0; color: #666; font-size: 0.9rem;">
+                    A confirmation email has been sent to your inbox.
+                </p>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-primary" onclick="closeModal('success-modal')" style="width: 100%;">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-container">
@@ -200,33 +1099,152 @@
         }
 
         /**
-         * Handles the checkout process
+         * Handles the checkout process - shows confirmation modal
          */
         function proceedToCheckout() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
             if (cart.length === 0) {
-                alert('Your cart is empty!');
+                showNotification('Your cart is empty!', 'error');
                 return;
             }
 
-            // Simple checkout simulation
+            // Populate checkout summary
+            const checkoutSummary = document.getElementById('checkout-summary');
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-            const confirmed = confirm(`Your total is NPR ${total.toFixed(2)}. Proceed to checkout?`);
+            checkoutSummary.innerHTML = cart.map(item => `
+                <div class="checkout-item">
+                    <span class="checkout-item-name">${item.name} (x${item.quantity})</span>
+                    <span class="checkout-item-price">NPR ${(item.price * item.quantity).toFixed(2)}</span>
+                </div>
+            `).join('') + `
+                <div class="checkout-item">
+                    <span class="checkout-item-name">Total Amount</span>
+                    <span class="checkout-item-price">NPR ${total.toFixed(2)}</span>
+                </div>
+            `;
 
-            if (confirmed) {
-                alert('Thank you for your purchase! Your order has been placed successfully.');
-                // Clear cart after successful checkout
-                localStorage.removeItem('cart');
-                loadCartItems();
+            // Show checkout modal
+            showModal('checkout-modal');
+        }
 
-                // Update cart counter
-                if (typeof updateCartCounter === 'function') {
-                    updateCartCounter();
-                }
+        /**
+         * Confirms the purchase and shows success modal
+         */
+        function confirmPurchase() {
+            // Close checkout modal
+            closeModal('checkout-modal');
+
+            // Clear cart after successful checkout
+            localStorage.removeItem('cart');
+            loadCartItems();
+
+            // Update cart counter
+            if (typeof updateCartCounter === 'function') {
+                updateCartCounter();
+            }
+
+            // Show success modal after a short delay
+            setTimeout(() => {
+                showModal('success-modal');
+            }, 300);
+        }
+
+        /**
+         * Shows a modal by ID
+         * @param {string} modalId - ID of the modal to show
+         */
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
             }
         }
+
+        /**
+         * Closes a modal by ID
+         * @param {string} modalId - ID of the modal to close
+         */
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        /**
+         * Shows a notification message
+         * @param {string} message - Message to display
+         * @param {string} type - Type of notification (success, error, info)
+         */
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+                color: white;
+                padding: 16px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 10000;
+                font-weight: bold;
+                animation: slideInRight 0.3s ease-out;
+                max-width: 300px;
+            `;
+
+            document.body.appendChild(notification);
+
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease-in';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS animations for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                const modalId = event.target.id;
+                closeModal(modalId);
+            }
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const openModals = document.querySelectorAll('.modal-overlay.show');
+                openModals.forEach(modal => {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
     </script>
 </body>
 
