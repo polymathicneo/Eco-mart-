@@ -29,71 +29,299 @@
         </ul>
     </nav>
 
+    <!-- Hero Section with Background Image -->
+    <header class="blog-hero">
+        <div class="hero-overlay">
+            <div class="wrapper">
+                <h1>Our Sustainable Stories</h1>
+                <p>Exploring the intersection of technology, culture, and ecology for a greener future.</p>
+            </div>
+        </div>
+    </header>
+
     <div class="wrapper">
-        <h1 style="text-align: center; margin: 30px 0;">Our Blog</h1>
+        <style>
+            /* Professional Blog Styling */
+            .blog-hero {
+                background: url('images/eco-lifestyle.jpg') center/cover no-repeat;
+                height: 400px;
+                position: relative;
+                color: white;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 50px;
+            }
 
-        <!-- Blog article -->
-        <div class="post">
-            <h2>How Technology is Changing Our Daily Lives</h2>
-            <p style="color: #888; font-size: 0.9rem;">Posted on January 6, 2026</p>
+            .hero-overlay {
+                background: rgba(0, 0, 0, 0.4);
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-            <p style="margin: 20px 0;">
-                Technology has totally changed how we do everything nowadays. We wake up to phone alarms,
-                check emails before breakfast, and use GPS to get anywhere. It's crazy how different life was
-                just 20 years ago when people still used paper maps and landline phones.
-            </p>
+            .blog-hero h1 {
+                font-size: 3.5rem;
+                margin-bottom: 10px;
+                font-weight: 800;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            }
 
-            <h3>In Our Everyday Life</h3>
-            <p>
-                Think about it - we don't need to remember phone numbers anymore because they're all saved in our
-                contacts.
-                We can watch any movie or show instantly instead of going to a video store. Even shopping is different
-                now
-                since we can order things online and have them delivered the next day.
-            </p>
-            <p>
-                But there's also downsides. All these devices and data centers use tons of electricity. That's why we
-                think
-                it's important to sell eco-friendly products and raise awareness about sustainable living.
-            </p>
+            .blog-hero p {
+                font-size: 1.4rem;
+                opacity: 0.9;
+                max-width: 700px;
+                margin: 0 auto;
+            }
 
-            <h3>Technology in Business</h3>
-            <p>
-                For businesses, technology has made everything faster. Companies can reach customers worldwide through
-                the internet. Small stores like ours can compete with big corporations because websites level the
-                playing field.
-            </p>
-            <p>
-                We learned a lot about this while making this website. It's not just about writing code - it's about
-                understanding how people use technology and making something that actually helps them.
-            </p>
+            .blog-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 40px;
+                margin-bottom: 60px;
+            }
 
-            <!-- Quote -->
-            <div
-                style="background: #f1f8e9; padding: 20px; border-left: 4px solid #2e7d32; margin: 30px 0; font-style: italic;">
-                "Technology is best when it brings people together." - Matt Mullenweg
+            .blog-card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .blog-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+
+            .card-img-container {
+                width: 100%;
+                height: 220px;
+                overflow: hidden;
+            }
+
+            .card-img-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .blog-card:hover .card-img-container img {
+                transform: scale(1.1);
+            }
+
+            .card-body {
+                padding: 30px;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .blog-card h3 {
+                color: #2e7d32;
+                margin-top: 0;
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+                line-height: 1.3;
+            }
+
+            .blog-card .meta {
+                color: #999;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .blog-card p {
+                color: #555;
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 25px;
+            }
+
+            .blog-card .read-more {
+                margin-top: auto;
+                color: #2e7d32;
+                font-weight: 700;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                transition: gap 0.2s ease;
+            }
+
+            .blog-card .read-more:hover {
+                gap: 10px;
+            }
+
+            /* Newsletter Section */
+            .newsletter-section {
+                background: #f1f8e9;
+                padding: 60px 0;
+                border-radius: 20px;
+                text-align: center;
+                margin: 40px 0 80px;
+            }
+
+            .newsletter-section h2 {
+                color: #2e7d32;
+                margin-bottom: 15px;
+            }
+
+            .newsletter-box {
+                max-width: 500px;
+                margin: 30px auto 0;
+                display: flex;
+                gap: 10px;
+            }
+
+            .newsletter-box input {
+                flex: 1;
+                padding: 12px 20px;
+                border: 1px solid #ddd;
+                border-radius: 50px;
+            }
+
+            .newsletter-box button {
+                padding: 12px 30px;
+                background: #2e7d32;
+                color: white;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-weight: 600;
+            }
+
+            .newsletter-box button:hover {
+                background: #1b5e20;
+            }
+
+            @media (max-width: 768px) {
+                .blog-hero h1 {
+                    font-size: 2.25rem;
+                }
+
+                .blog-hero {
+                    height: 300px;
+                }
+
+                .newsletter-box {
+                    flex-direction: column;
+                    padding: 0 20px;
+                }
+            }
+        </style>
+
+        <div class="blog-grid">
+            <!-- Article 1 -->
+            <div class="blog-card">
+                <div class="card-img-container">
+                    <img src="images/eco-lifestyle.jpg" alt="Digital Carbon Footprint">
+                </div>
+                <div class="card-body">
+                    <span class="meta">Technology • Jan 10</span>
+                    <h3>The Hidden Carbon Footprint of Your Digital Life</h3>
+                    <p>Every email sent, every movie streamed, and every photo stored in the cloud requires massive
+                        amounts of energy. Here's how to digital detox...</p>
+                    <a class="read-more">Read Full Article →</a>
+                </div>
             </div>
 
-            <p>
-                As students working on this project, we've seen firsthand how powerful web technology can be for sharing
-                ideas and making positive changes in the world.
-            </p>
+            <!-- Article 2 -->
+            <div class="blog-card">
+                <div class="card-img-container">
+                    <img src="images/bamboo-dish-brush-long-handle-eco-natural-products-701278.avif"
+                        alt="Zero Waste Kitchen">
+                </div>
+                <div class="card-body">
+                    <span class="meta">Lifestyle • Jan 8</span>
+                    <h3>The Ultimate Guide to a Zero-Waste Kitchen</h3>
+                    <p>From organic composting to switching to bamboo brushes, learn the essential steps to eliminate
+                        waste in the heart of your home.</p>
+                    <a class="read-more">Read Full Article →</a>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="blog-card">
+                <div class="card-img-container">
+                    <img src="images/bamboo-bottle.jpg" alt="Bamboo Plant">
+                </div>
+                <div class="card-body">
+                    <span class="meta">Environment • Jan 5</span>
+                    <h3>Why Bamboo is the Superplant of the Future</h3>
+                    <p>Discover why this resilient grass is revolutionizing the construction, fashion, and houseware
+                        industries with its rapid growth.</p>
+                    <a class="read-more">Read Full Article →</a>
+                </div>
+            </div>
+
+            <!-- Article 4 -->
+            <div class="blog-card">
+                <div class="card-img-container">
+                    <img src="images/pashmina-shawl.jpg" alt="Sustainable Fashion">
+                </div>
+                <div class="card-body">
+                    <span class="meta">Fashion • Jan 3</span>
+                    <h3>Sustainable Fashion: Beyond the Buzzwords</h3>
+                    <p>Dive deep into the world of ethically sourced wool and organic fabrics that respect both the
+                        planet and the workers who make them.</p>
+                    <a class="read-more">Read Full Article →</a>
+                </div>
+            </div>
+
+            <!-- Article 5 -->
+            <div class="blog-card">
+                <div class="card-img-container">
+                    <img src="images/bamboo-toothbrush.jpg" alt="Plastic Crisis">
+                </div>
+                <div class="card-body">
+                    <span class="meta">Crisis • Dec 28</span>
+                    <h3>The Global Plastic Crisis & YOU</h3>
+                    <p>The scale of the plastic pollution is daunting, but individual choices—like choosing bamboo over
+                        plastic—still make a difference.</p>
+                    <a class="read-more">Read Full Article →</a>
+                </div>
+            </div>
+
+            <!-- Article 6 -->
+            <div class="blog-card">
+                <div class="card-img-container">
+                    <img src="images/b28c8d7c450fcb26604a0003aae17e4b.jpg_200x200q80.jpg" alt="Smart Home">
+                </div>
+                <div class="card-body">
+                    <span class="meta">Smart Home • Dec 20</span>
+                    <h3>Smart Homes, Greener Planet</h3>
+                    <p>Explore how modern technology can actually help you use less energy through intelligent
+                        monitoring and automation systems.</p>
+                    <a class="read-more">Read Full Article →</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Related topics box -->
-        <div
-            style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-top: 30px;">
-            <h4 style="color: #2e7d32;">Related Topics</h4>
-            <ul style="list-style: none; padding: 0;">
-                <li style="padding: 8px 0;">→ Why bamboo is better than plastic</li>
-                <li style="padding: 8px 0;">→ The future of sustainable tech</li>
-                <li style="padding: 8px 0;">→ How to reduce your carbon footprint</li>
-            </ul>
-        </div>
+        <section class="newsletter-section">
+            <div class="wrapper">
+                <h2>Join the Green Revolution</h2>
+                <p>Subscribe to get the latest tips on sustainable living directly in your inbox.</p>
+                <form class="newsletter-box" onsubmit="handleNewsletterSubscription(event)">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe Now</button>
+                </form>
+            </div>
+        </section>
     </div>
 
     <footer class="bottom">
-        <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, and Arayan</p>
+        <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, Arayan, and Pershek</p>
     </footer>
 
     <script src="js/cart.js"></script>

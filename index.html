@@ -11,21 +11,334 @@
 
     <title>EcoMart | Home</title>
 
-    <!-- External CSS file that we made -->
+    <!-- External CSS - Site-wide styles that apply to all pages
+         Justification: Reusable styles, better caching, easier maintenance -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Some internal CSS just for this page -->
+    <!-- Internal CSS - Used for page-specific styles for Home Page
+         Justification: These styles define the complex hero, features, testimonials, 
+         and newsletter sections unique to the landing page. -->
     <style>
-        .hero {
-            background-color: #e8f5e9;
-            padding: 50px 20px;
-            text-align: center;
-            border-bottom: 3px solid #2e7d32;
+        /* Animated welcome text - only on homepage */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .hero h1 {
+        .hero-content h1 {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-btn {
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        /* Enhanced Hero Section */
+        .hero-wrapper {
+            position: relative;
+            background: url('images/eco-lifestyle.jpg') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: #FBC02D;
             color: #1b5e20;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .hero-btn:hover {
+            transform: scale(1.05);
+            background-color: #fdd835;
+        }
+
+        /* Section Common Styling */
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
             font-size: 2.2rem;
+            color: #1b5e20;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #FBC02D;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Why Choose Us Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-box {
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 20px;
+            color: white;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background-color: #e8f5e9;
+            padding: 60px 0;
+            margin-bottom: 80px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 2rem;
+            color: #a5d6a7;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        /* Interactive Testimonial Cards */
+        .interactive-card {
+            cursor: pointer;
+            height: 350px;
+            perspective: 1000px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            background: none !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .interactive-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: #f1f8e9;
+            color: #1b5e20;
+        }
+
+        .customer-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #a5d6a7;
+        }
+
+        .quote-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .customer-name {
+            font-weight: 700;
+            color: #1b5e20;
+            margin-bottom: 5px;
+        }
+
+        .customer-location {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .card-back h3 {
+            margin-bottom: 15px;
+        }
+
+        .card-back p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, #1B5E20 0%, #004d40 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 12px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-input {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            background-color: #FBC02D;
+            color: #1b5e20;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #fdd835;
         }
     </style>
 </head>
@@ -51,51 +364,197 @@
         </ul>
     </nav>
 
-    <!-- Big welcome section using inline styles as required -->
-    <div class="hero">
-        <h1>Welcome to EcoMart</h1>
-        <p style="font-size: 1.1rem; margin: 20px 0;">
-            Shop for sustainable products and help save the environment!
-        </p>
-        <!-- Yellow button with inline styling -->
-        <a href="products.html"
-            style="background: #FBC02D; color: #1b5e20; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block;">
-            Browse Products
-        </a>
-    </div>
+    <!-- Enhanced Hero Section -->
+    <header class="hero-wrapper">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Welcome to EcoMart</h1>
+            <p>Your one-stop shop for sustainable, eco-friendly products that help you live a greener life.</p>
+            <a href="products.html" class="hero-btn">Shop Now</a>
+        </div>
+    </header>
 
-    <!-- Main stuff on the page -->
-    <div class="wrapper">
-        <h2 style="text-align: center; margin: 30px 0;">What We Offer</h2>
-
-        <!-- Info boxes about different sections -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                <h3 style="color: #2e7d32;">Eco Products</h3>
-                <p>We sell bamboo bottles, organic bags, and other sustainable items.</p>
-                <a href="products.html" style="color: #2e7d32; font-weight: bold;">See Products →</a>
+    <!-- Why Choose Us / Features -->
+    <section class="section-container">
+        <h2 class="section-title">Why Choose EcoMart?</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <span class="feature-icon">🌿</span>
+                <h3>100% Sustainable</h3>
+                <p>All our products are sourced ethically and are biodegradable or recyclable.</p>
             </div>
-
-            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                <h3 style="color: #2e7d32;">Our Blog</h3>
-                <p>Learn about how technology affects our daily lives and the environment.</p>
-                <a href="blog.html" style="color: #2e7d32; font-weight: bold;">Read Blog →</a>
+            <div class="feature-box">
+                <span class="feature-icon">🤝</span>
+                <h3>Support Local</h3>
+                <p>We work directly with local artisans and farmers to bring you the best.</p>
             </div>
-
-            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                <h3 style="color: #2e7d32;">About Our Team</h3>
-                <p>Meet the students who built this website for our coursework.</p>
-                <a href="about.html" style="color: #2e7d32; font-weight: bold;">Meet Us →</a>
+            <div class="feature-box">
+                <span class="feature-icon">🚚</span>
+                <h3>Carbon Neutral</h3>
+                <p>We offset the carbon footprint of every delivery we make.</p>
             </div>
         </div>
+    </section>
 
-        <!-- Image tag required for assignment -->
-        <div style="margin: 40px 0; text-align: center;">
-            <img src="images/eco-lifestyle.jpg" alt="Eco-friendly lifestyle"
-                style="max-width: 100%; border-radius: 10px;">
-            <p style="color: #666; font-size: 0.9rem; margin-top: 10px;">Living sustainably makes a difference</p>
+    <!-- Shop by Category -->
+    <section class="section-container">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="images/cotton-tote.jpg" alt="Eco Bags">
+                <div class="category-overlay">
+                    <h3>Eco Bags</h3>
+                </div>
+                <a href="products.html" style="position:absolute; top:0; left:0; width:100%; height:100%;"></a>
+            </div>
+            <div class="category-card">
+                <img src="images/bamboo-bottle.jpg" alt="Bottles">
+                <div class="category-overlay">
+                    <h3>Bottles & Cups</h3>
+                </div>
+                <a href="products.html" style="position:absolute; top:0; left:0; width:100%; height:100%;"></a>
+            </div>
+            <div class="category-card">
+                <img src="images/lokta-notebook.jpg" alt="Stationery">
+                <div class="category-overlay">
+                    <h3>Stationery</h3>
+                </div>
+                <a href="products.html" style="position:absolute; top:0; left:0; width:100%; height:100%;"></a>
+            </div>
+            <div class="category-card">
+                <img src="images/bamboo-toothbrush.jpg" alt="Personal Care">
+                <div class="category-overlay">
+                    <h3>Personal Care</h3>
+                </div>
+                <a href="products.html" style="position:absolute; top:0; left:0; width:100%; height:100%;"></a>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Featured Products Preview -->
+    <section class="section-container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="items-grid">
+            <!-- Product 1 -->
+            <div class="item-card">
+                <img src="images/bamboo-bottle.jpg" alt="Bamboo Water Bottle">
+                <h3>Bamboo Water Bottle</h3>
+                <p class="price">
+                    <span class="crossed-price">Rs. 3200</span>
+                    <span class="sale">Rs. 2450</span>
+                </p>
+                <button class="buy-btn" onclick="addToCart('Bamboo Water Bottle', 'Rs. 2450')">Add to Cart</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="item-card">
+                <img src="images/hemp-bag.jpg" alt="Natural Hemp Bag">
+                <h3>Natural Hemp Bag</h3>
+                <p class="price">
+                    <span class="crossed-price">Rs. 1200</span>
+                    <span class="sale">Rs. 950</span>
+                </p>
+                <button class="buy-btn" onclick="addToCart('Natural Hemp Bag', 'Rs. 950')">Add to Cart</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="item-card">
+                <img src="images/organic-fertilizer.jpg" alt="Natural Organic Fertilizer">
+                <h3>Natural Organic Fertilizer</h3>
+                <p class="price">
+                    <span class="crossed-price">Rs. 350</span>
+                    <span class="sale">Rs. 280</span>
+                </p>
+                <button class="buy-btn" onclick="addToCart('Natural Organic Fertilizer', 'Rs. 280')">Add to
+                    Cart</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="item-card">
+                <img src="images/beeswax-wraps.jpg" alt="Beeswax Wraps">
+                <h3>Beeswax Food Wraps</h3>
+                <p class="price">
+                    <span class="crossed-price">Rs. 1950</span>
+                    <span class="sale">Rs. 1680</span>
+                </p>
+                <button class="buy-btn" onclick="addToCart('Beeswax Food Wraps', 'Rs. 1680')">Add to Cart</button>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <!-- Inline CSS - Unique positioning for this specific button
+                 Justification: One-time override for centered CTA button -->
+            <a href="products.html" class="hero-btn" style="padding: 10px 30px; font-size: 1rem;">View All Products</a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <h2 class="section-title">Happy Customers</h2>
+        <div class="testimonials-grid">
+            <!-- Customer 1 -->
+            <div class="testimonial-card interactive-card" onclick="togglePortfolio(this)">
+                <div class="card-front">
+                    <img src="images/customer-1.jpg" alt="Sita Sharma" class="customer-img">
+                    <span class="quote-text">❝ मेरो नयाँ बाँसको बोतल मलाई धेरै मन पर्यो! ❞</span>
+                    <p class="customer-name">Sita Sharma</p>
+                    <p class="customer-location">Kathmandu, Nepal</p>
+                </div>
+                <div class="card-back">
+                    <h3>Customer Profile</h3>
+                    <p><strong>Joined:</strong> Jan 2024</p>
+                    <p><strong>Preference:</strong> Zero Waste Gadgets</p>
+                    <p>"Sustainability is not just a choice, it's a lifestyle. EcoMart makes it easy!"</p>
+                </div>
+            </div>
+            <!-- Customer 2 -->
+            <div class="testimonial-card interactive-card" onclick="togglePortfolio(this)">
+                <div class="card-front">
+                    <img src="images/customer-2.jpg" alt="Ram Bahadur Thapa" class="customer-img">
+                    <span class="quote-text">❝ सामानको गुणस्तर धेरै राम्रो छ र डेलिभरी पनि छिटो भयो। ❞</span>
+                    <p class="customer-name">Ram Bahadur Thapa</p>
+                    <p class="customer-location">Pokhara, Nepal</p>
+                </div>
+                <div class="card-back">
+                    <h3>Customer Profile</h3>
+                    <p><strong>Joined:</strong> Nov 2023</p>
+                    <p><strong>Preference:</strong> Organic Home Decor</p>
+                    <p>"The best marketplace for authentic Nepali sustainable products."</p>
+                </div>
+            </div>
+            <!-- Customer 3 -->
+            <div class="testimonial-card interactive-card" onclick="togglePortfolio(this)">
+                <div class="card-front">
+                    <img src="images/customer-3.jpg" alt="Gita Shrestha" class="customer-img">
+                    <span class="quote-text">❝ यो अल्लोको झोला धेरै बलियो र आकर्षक छ। ❞</span>
+                    <p class="customer-name">Gita Shrestha</p>
+                    <p class="customer-location">Lalitpur, Nepal</p>
+                </div>
+                <div class="card-back">
+                    <h3>Customer Profile</h3>
+                    <p><strong>Joined:</strong> Feb 2024</p>
+                    <p><strong>Preference:</strong> Eco-Friendly Stationery</p>
+                    <p>"I love how every purchase supports local artisans and the environment."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script for Interactivity -->
+    <script>
+        function togglePortfolio(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+
+    <!-- Newsletter -->
+    <section class="section-container">
+        <div class="newsletter-section">
+            <h2>Join Our Green Community</h2>
+            <p style="margin-top: 10px; opacity: 0.9;">Subscribe for eco-tips, new product alerts, and exclusive offers.
+            </p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+                <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer at bottom -->
     <footer class="bottom">

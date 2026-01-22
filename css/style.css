@@ -1,10 +1,11 @@
 /* 
-   EcoMart Styling
+   EcoMart Styling - EXTERNAL CSS
    Made by our group for the coursework project
-   We picked green colors because it fits with the eco theme
+   This file contains shared base styles used across all pages.
+   Justification: External CSS is used for site-wide consistency and better performance.
 */
 
-/* Basic stuff - resetting margins and setting fonts */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -12,20 +13,20 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f9f9f9;
 }
 
-/* This wraps all the main content */
+/* Common Layout Wrapper */
 .wrapper {
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Top menu bar - used flexbox to keep things in a row */
+/* Global Navigation */
 .top-nav {
     display: flex;
     justify-content: space-between;
@@ -44,39 +45,22 @@ body {
     font-weight: bold;
 }
 
+.top-nav a:hover,
+.top-nav a.current {
+    color: #a5d6a7;
+}
+
 .site-logo {
     font-size: 1.5rem;
 }
 
-/* Menu items list */
 .menu {
     display: flex;
     list-style: none;
     gap: 20px;
 }
 
-.menu a:hover,
-.menu a.current {
-    color: #a5d6a7;
-}
-
-/* Big banner at the top of homepage */
-.banner {
-    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-    border-radius: 0 0 50px 50px;
-    margin-bottom: 40px;
-}
-
-.banner h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: white;
-}
-
-/* Grid for showing products - made it more consistent */
+/* Global Product Card Styles (Shared by Index and Products) */
 .items-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -84,7 +68,7 @@ body {
     margin-top: 20px;
 }
 
-/* Single product card - fixed height for consistency */
+
 .item-card {
     background: white;
     padding: 20px;
@@ -95,6 +79,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 420px;
+    position: relative;
 }
 
 .item-card:hover {
@@ -116,12 +101,36 @@ body {
     color: #1b5e20;
 }
 
-.item-card p {
-    flex-grow: 1;
-    margin: 10px 0;
+/* Sale badge for discounted products */
+.item-card:has(.crossed-price)::before {
+    content: 'SALE!';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #d32f2f;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 10;
+    animation: pulseBadge 2s ease-in-out infinite;
 }
 
-/* Add to cart button */
+/* Pulse effect for sale items */
+@keyframes pulseBadge {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Global Buttons */
 .buy-btn {
     background: #2e7d32;
     margin-top: auto;
@@ -137,7 +146,7 @@ body {
     background: #1b5e20;
 }
 
-/* Price display */
+/* Price Styling */
 .price {
     font-size: 1.2rem;
     font-weight: bold;
@@ -155,107 +164,7 @@ body {
     color: #d32f2f;
 }
 
-/* Blog article box */
-.post {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-/* Table styling */
-.data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    background: white;
-}
-
-.data-table th,
-.data-table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-.data-table th {
-    background-color: #2e7d32;
-    color: white;
-}
-
-.data-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Contact form */
-.contact-box {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-.input-box {
-    margin-bottom: 20px;
-}
-
-.input-box label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #2e7d32;
-}
-
-.input-box input,
-.input-box textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-}
-
-.input-box input:focus,
-.input-box textarea:focus {
-    outline: none;
-    border-color: #2e7d32;
-    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
-}
-
-.send-btn {
-    background: #2e7d32;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    width: 100%;
-}
-
-.send-btn:hover {
-    background: #1b5e20;
-}
-
-/* Team member info cards */
-.person-info {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.person-info h2 {
-    color: #1b5e20;
-    margin-bottom: 15px;
-}
-
-/* Bottom footer */
+/* Global Footer */
 .bottom {
     background: #333;
     color: white;
@@ -269,12 +178,8 @@ body {
     text-decoration: none;
 }
 
-.bottom a:hover {
-    color: white;
-}
 img {
-    max-width:auto;
+    max-width: 100%;
+    line-height: 0;
     height: auto;
-    display: block;
-    margin : auto;
 }

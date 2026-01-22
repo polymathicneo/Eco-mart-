@@ -7,6 +7,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoMart | Contact</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Internal CSS - Page-specific styles for Contact Page
+         Justification: These styles define the layout and feedback states of the 
+         contact form, fulfilling coursework requirements. -->
+    <style>
+        /* Contact form container */
+        .contact-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .input-box {
+            margin-bottom: 20px;
+        }
+
+        .input-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .input-box input,
+        .input-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .input-box input:focus,
+        .input-box textarea:focus {
+            outline: none;
+            border-color: #2e7d32;
+            box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+        }
+
+        .send-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .send-btn:hover {
+            background: #1b5e20;
+        }
+
+        /* Success/Validation feedback */
+        .form-success {
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input:invalid:not(:placeholder-shown),
+        textarea:invalid:not(:placeholder-shown) {
+            border-color: #d32f2f;
+            background: #ffebee;
+        }
+
+        input:valid:not(:placeholder-shown),
+        textarea:valid:not(:placeholder-shown) {
+            border-color: #4caf50;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -35,12 +115,12 @@
         <form id="contactForm" class="contact-box">
             <div class="input-box">
                 <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <input type="text" id="name" name="name" placeholder="Enter your full name">
             </div>
 
             <div class="input-box">
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com">
             </div>
 
             <div class="input-box">
@@ -50,8 +130,7 @@
 
             <div class="input-box">
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="6" placeholder="Type your message here..."
-                    required></textarea>
+                <textarea id="message" name="message" rows="6" placeholder="Type your message here..."></textarea>
             </div>
 
             <button type="submit" class="send-btn">Send Message</button>
@@ -63,7 +142,7 @@
     </div>
 
     <footer class="bottom">
-        <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, and Arayan</p>
+        <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, Arayan, and Pershek</p>
     </footer>
 
     <script src="js/script.js"></script>

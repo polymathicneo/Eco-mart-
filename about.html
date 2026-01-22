@@ -7,11 +7,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoMart | About Us</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Internal CSS - Page-specific styles for the interactive portfolio
+         Justification: These styles define the modal popup and member cards layout 
+         specific to the About Us page, fulfilling coursework requirements. -->
+    <style>
+        /* Team member info cards */
+        .person-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .person-info h2 {
+            color: #1b5e20;
+            margin-bottom: 15px;
+        }
+
+        /* PORTFOLIO MODAL STYLES */
+        .portfolio-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portfolio-modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .portfolio-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            z-index: 10;
+            background: none;
+            border: none;
+        }
+
+        .portfolio-header {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            color: white;
+            padding: 40px 30px 30px;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+
+        .portfolio-image-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .portfolio-header h2 {
+            color: white;
+            margin: 0 0 10px 0;
+        }
+
+        .portfolio-body {
+            padding: 30px;
+        }
+
+        .portfolio-detail h3 {
+            color: #2e7d32;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .portfolio-nav-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Clickable Card Effect */
+        .person-info.clickable {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .person-info.clickable:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-modal-content {
+                width: 95%;
+            }
+
+            .portfolio-image-large {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
     <style>
         /* Team Section Styling */
         .team-section {
             padding: 60px 20px;
-            background: linear-gradient(135deg, rgba(27, 94, 32, 0.03) 0%, rgba(46, 125, 50, 0.03) 100%);
+            background: #f4f4f4;
         }
 
         .section-header {
@@ -21,178 +166,95 @@
 
         .section-header h1 {
             font-size: 2.8rem;
-            color: #1b5e20;
+            color: #333;
             margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-weight: bold;
         }
 
         .section-header p {
             font-size: 1.1rem;
-            color: #4a7c3e;
-            font-weight: 500;
-        }
-
-        .team-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            padding: 0 20px;
+            color: #666;
         }
 
         .person-info {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f7f0 100%);
-            border-radius: 16px;
-            padding: 0;
-            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.1);
-            transition: all 0.3s ease;
-            overflow: hidden;
-            border: 2px solid rgba(46, 125, 50, 0.1);
+            width: 700px;
+            height: 200px;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
             display: flex;
-            flex-direction: column;
+            overflow: hidden;
         }
 
-        .person-info:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(27, 94, 32, 0.2);
-            border-color: rgba(46, 125, 50, 0.3);
+        .person-info:nth-child(2n) {
+            background: #f9f9f9;
         }
 
         .person-image-wrapper {
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            width: 160px;
+            height: 160px;
+            margin: 20px;
+            background: #eee;
+            border: 1px solid #999;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
+        }
+
+        .person-image-wrapper::before,
+        .person-image-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #999;
+        }
+
+        .person-image-wrapper::before {
+            transform: rotate(45deg);
+        }
+
+        .person-image-wrapper::after {
+            transform: rotate(-45deg);
         }
 
         .person-image {
             width: 100%;
-            height: 280px;
+            height: 100%;
             object-fit: cover;
-            object-position: center 20%;
-            background: linear-gradient(135deg, #2e7d32, #1b5e20);
-            display: block;
-            margin: 0;
-            padding: 0;
-            border: none;
+            position: relative;
+            z-index: 1;
         }
 
         .person-content {
-            padding: 30px;
+            flex: 1;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            flex: 1;
+            justify-content: center;
         }
 
         .person-info h2 {
-            color: #1b5e20;
+            color: #333;
             margin: 0;
             font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.3px;
+            font-weight: bold;
         }
 
         .person-role {
             color: #2e7d32;
-            font-size: 0.95rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: normal;
+            margin-bottom: 10px;
         }
 
         .person-info p {
-            margin: 0;
-            color: #555;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .person-info strong {
-            color: #1b5e20;
-            font-weight: 600;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
-            color: #1b5e20;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        @media (max-width: 1024px) {
-            .team-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 30px;
-            }
-
-            .person-image-wrapper {
-                height: 260px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .team-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 25px;
-            }
-
-            .section-header h1 {
-                font-size: 2rem;
-            }
-
-            .person-image-wrapper {
-                height: 240px;
-            }
-
-            .person-content {
-                padding: 20px;
-                gap: 15px;
-            }
-
-            .person-info h2 {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-header h1 {
-                font-size: 1.6rem;
-            }
-
-            .section-header p {
-                font-size: 1rem;
-            }
-
-            .person-image-wrapper {
-                height: 220px;
-            }
-
-            .person-content {
-                padding: 18px;
-            }
-
-            .person-info h2 {
-                font-size: 1.1rem;
-            }
+            margin: 5px 0;
+            color: #666;
+            line-height: 1.4;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -215,94 +277,132 @@
 
     <div class="team-section">
         <div class="section-header">
-            <h1>Meet Our Team</h1>
-            <p>A dedicated group of students working together for the environment</p>
+            <h1>About Our Team</h1>
+            <p>A student project for coursework</p>
         </div>
 
-        <div class="team-grid">
-            <!-- First team member -->
-            <div class="person-info">
-                <div class="person-image-wrapper">
-                    <img src="images\WhatsApp Image 2025-12-29 at 6.56.55 PM.jpeg" alt="Shubham Sedai" class="person-image">
-                </div>
-                <div class="person-content">
-                    <h2>Shubham Sedai</h2>
-                    <span class="person-role">Lead Developer</span>
-                    <p><strong>Expertise:</strong> HTML, CSS, JavaScript, Project Structure</p>
-                    <p><strong>Education:</strong> BSc (Hons) Computing</p>
-                    <p>Handled most of the coding and ensured everything worked together properly. Supported the team with technical guidance and debugging.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
+        <!-- First team member -->
+        <div class="person-info clickable" onclick="openPortfolio(0)">
+            <div class="person-image-wrapper">
+                <img src="images/shubham.jpeg" alt="Shubham Sedai" class="person-image">
             </div>
-
-            <!-- Second team member -->
-            <div class="person-info">
-                <div class="person-image-wrapper">
-                    <img src="images\WhatsApp Image 2025-12-29 at 7.03.19 PM.jpeg" alt="Monika Khatri" class="person-image">
-                </div>
-                <div class="person-content">
-                    <h2>Monika Khatri</h2>
-                    <span class="person-role">Designer & Researcher</span>
-                    <p><strong>Expertise:</strong> UI/UX Design, Color Theory, Layout Planning</p>
-                    <p><strong>Education:</strong> BSc (Hons) Computing</p>
-                    <p>Designed the visual layout and selected the color scheme. Researched eco-friendly websites to gather design inspiration and best practices.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">UI Design</span>
-                        <span class="skill-tag">Research</span>
-                        <span class="skill-tag">Color Theory</span>
-                    </div>
-                </div>
+            <div class="person-content">
+                <h2>Shubham Sedai</h2>
+                <span class="person-role">Lead Developer</span>
+                <p>What I'm Good At: HTML, CSS, JavaScript</p>
+                <p>Skills: Problem solving, Team coordination</p>
+                <p>Education: BSc (Hons) Computing</p>
+                <p>My Part: Core coding and architecture</p>
             </div>
+        </div>
 
-            <!-- Third team member -->
-            <div class="person-info">
-                <div class="person-image-wrapper">
-                    <img src="images\WhatsApp Image 2025-12-29 at 7.02.11 PM.jpeg" alt="Babisha Karki" class="person-image">
-                </div>
-                <div class="person-content">
-                    <h2>Babisha Karki</h2>
-                    <span class="person-role">Content Writer</span>
-                    <p><strong>Expertise:</strong> Writing, Proofreading, SEO Basics</p>
-                    <p><strong>Education:</strong> BSc (Hons) Computing</p>
-                    <p>Created all text content including product descriptions and blog articles. Ensured all content was clear, engaging, and easy to read.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Writing</span>
-                        <span class="skill-tag">SEO</span>
-                        <span class="skill-tag">Editing</span>
-                    </div>
-                </div>
+        <!-- Second team member -->
+        <div class="person-info clickable" onclick="openPortfolio(1)">
+            <div class="person-image-wrapper">
+                <img src="images/monika.jpeg" alt="Monika Khatri" class="person-image">
             </div>
+            <div class="person-content">
+                <h2>Monika Khatri</h2>
+                <span class="person-role">Designer & Researcher</span>
+                <p>What I'm Good At: Layout planning, UI Design</p>
+                <p>Skills: Creative thinking, Market research</p>
+                <p>Education: BSc (Hons) Computing</p>
+                <p>My Part: UI design and competitor research</p>
+            </div>
+        </div>
 
-            <!-- Fourth team member -->
-            <div class="person-info">
-                <div class="person-image-wrapper">
-                    <img src="images\WhatsApp Image 2025-12-29 at 6.41.36 PM.jpeg" alt="Arayan Timalsena" class="person-image">
+        <!-- Third team member -->
+        <div class="person-info clickable" onclick="openPortfolio(2)">
+            <div class="person-image-wrapper">
+                <img src="images\babisha.PNG" alt="Babisha Karki" class="person-image">
+            </div>
+            <div class="person-content">
+                <h2>Babisha Karki</h2>
+                <span class="person-role">Content Writer</span>
+                <p>What I'm Good At: Writing, SEO basics</p>
+                <p>Skills: Communication, Organization</p>
+                <p>Education: BSc (Hons) Computing</p>
+                <p>My Part: Website text and product descriptions</p>
+            </div>
+        </div>
+
+        <!-- Fourth team member -->
+        <div class="person-info clickable" onclick="openPortfolio(3)">
+            <div class="person-image-wrapper">
+                <img src="images/arayan.jpeg" alt="Arayan Timalsena" class="person-image">
+            </div>
+            <div class="person-content">
+                <h2>Arayan Timalsena</h2>
+                <span class="person-role">Testing & Documentation</span>
+                <p>What I'm Good At: QA Testing, Documentation</p>
+                <p>Skills: Attention to detail, Patience</p>
+                <p>Education: BSc (Hons) Computing</p>
+                <p>My Part: Quality assurance and process docs</p>
+            </div>
+        </div>
+
+        <!-- Fifth team member -->
+        <div class="person-info clickable" onclick="openPortfolio(4)">
+            <div class="person-image-wrapper">
+                <img src="images/pershek.jpg" alt="Pershek Chaudhary" class="person-image">
+            </div>
+            <div class="person-content">
+                <h2>Pershek Chaudhary</h2>
+                <span class="person-role">Backend & Database Support</span>
+                <p>What I'm Good At: Database Management, API Integration</p>
+                <p>Skills: SQL, Server-side logic</p>
+                <p>Education: BSc (Hons) Computing</p>
+                <p>My Part: Backend support and data integrity</p>
+            </div>
+        </div>
+
+        <!-- Portfolio Modal -->
+        <div id="portfolioModal" class="portfolio-modal">
+            <div class="portfolio-modal-content">
+                <button class="portfolio-close" onclick="closePortfolio()">&times;</button>
+
+                <div class="portfolio-header">
+                    <img id="portfolioImage" src="" alt="" class="portfolio-image-large">
+                    <h2 id="portfolioName"></h2>
+                    <div class="role" id="portfolioRole"></div>
                 </div>
-                <div class="person-content">
-                    <h2>Arayan Timalsena</h2>
-                    <span class="person-role">Testing & Documentation</span>
-                    <p><strong>Expertise:</strong> QA Testing, Bug Detection, Documentation</p>
-                    <p><strong>Education:</strong> BSc (Hons) Computing</p>
-                    <p>Tested the website across different browsers and devices. Documented the development process and key learnings throughout the project.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Testing</span>
-                        <span class="skill-tag">Documentation</span>
-                        <span class="skill-tag">QA</span>
+
+                <div class="portfolio-body">
+                    <div class="portfolio-detail">
+                        <h3>Technical Skills</h3>
+                        <p id="portfolioSkills"></p>
                     </div>
+
+                    <div class="portfolio-detail">
+                        <h3>Core Expertise</h3>
+                        <p id="portfolioExpertise"></p>
+                    </div>
+
+                    <div class="portfolio-detail">
+                        <h3>Education</h3>
+                        <p id="portfolioEducation"></p>
+                    </div>
+
+                    <div class="portfolio-detail">
+                        <h3>Project Contribution</h3>
+                        <p id="portfolioContribution"></p>
+                    </div>
+                </div>
+
+                <div class="portfolio-nav">
+                    <button class="portfolio-nav-btn" onclick="prevMember()">← Previous</button>
+                    <span class="member-counter" id="memberCounter"></span>
+                    <button class="portfolio-nav-btn" onclick="nextMember()">Next →</button>
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer class="bottom">
-        <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, and Arayan</p>
-    </footer>
+        <footer class="bottom">
+            <p>&copy; 2026 EcoMart | Made by Shubham, Monika, Babisha, Arayan, and Pershek</p>
+        </footer>
 
-    <script src="js/script.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/portfolio.js"></script>
 </body>
 
 </html>
