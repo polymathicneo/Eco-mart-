@@ -475,8 +475,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideIn {
@@ -484,6 +489,7 @@
                 opacity: 0;
                 transform: translateY(-30px) scale(0.95);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -956,7 +962,8 @@
                 </p>
             </div>
             <div class="modal-buttons">
-                <button class="modal-btn modal-btn-primary" onclick="closeModal('success-modal')" style="width: 100%;">Continue Shopping</button>
+                <button class="modal-btn modal-btn-primary" onclick="closeModal('success-modal')"
+                    style="width: 100%;">Continue Shopping</button>
             </div>
         </div>
     </div>
@@ -965,7 +972,8 @@
         <div class="footer-container">
             <div class="footer-section">
                 <h4>EcoMart</h4>
-                <p>Your premium store for sustainable living products. Join us in making the planet greener, one purchase at a time.</p>
+                <p>Your premium store for sustainable living products. Join us in making the planet greener, one
+                    purchase at a time.</p>
                 <div class="social-links">
                     <a href="#" title="Facebook">📘</a>
                     <a href="#" title="Twitter">🐦</a>
@@ -1014,7 +1022,7 @@
 
     <script>
         // Load cart items when page loads
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             loadCartItems();
         });
 
@@ -1228,7 +1236,7 @@
         document.head.appendChild(style);
 
         // Close modals when clicking outside
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (event.target.classList.contains('modal-overlay')) {
                 const modalId = event.target.id;
                 closeModal(modalId);
@@ -1236,7 +1244,7 @@
         });
 
         // Close modals with Escape key
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 const openModals = document.querySelectorAll('.modal-overlay.show');
                 openModals.forEach(modal => {

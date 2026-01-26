@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Internal CSS - Used for page-specific styles for Home Page
-         Justification: These styles define the complex hero, features, testimonials, 
+         Justification: These styles define the complex welcome, features, testimonials, 
          and newsletter sections unique to the landing page. -->
     <style>
         /* Animated welcome text - only on homepage */
@@ -32,20 +32,20 @@
             }
         }
 
-        .hero-content h1 {
+        .welcome-content h1 {
             animation: fadeInUp 1s ease-out;
         }
 
-        .hero-content p {
+        .welcome-content p {
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .hero-btn {
+        .welcome-btn {
             animation: fadeInUp 1s ease-out 0.4s both;
         }
 
-        /* Enhanced Hero Section */
-        .hero-wrapper {
+        /* Enhanced welcome Section */
+        .welcome-center-box {
             position: relative;
             background: url('images/eco-lifestyle.jpg') no-repeat center center/cover;
             height: 600px;
@@ -57,7 +57,7 @@
             margin-bottom: 50px;
         }
 
-        .hero-overlay {
+        .welcome-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -66,26 +66,26 @@
             background: rgba(0, 0, 0, 0.5);
         }
 
-        .hero-content {
+        .welcome-content {
             position: relative;
             z-index: 1;
             max-width: 800px;
             padding: 20px;
         }
 
-        .hero-content h1 {
+        .welcome-content h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .hero-content p {
+        .welcome-content p {
             font-size: 1.3rem;
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        .hero-btn {
+        .welcome-btn {
             display: inline-block;
             background-color: #FBC02D;
             color: #1b5e20;
@@ -97,7 +97,7 @@
             transition: transform 0.2s, background-color 0.2s;
         }
 
-        .hero-btn:hover {
+        .welcome-btn:hover {
             transform: scale(1.05);
             background-color: #fdd835;
         }
@@ -346,7 +346,7 @@
 <body>
 
     <!-- Top menu with logo and links -->
-    <nav class="top-nav">
+    <nav class="menu-bar">
         <div class="site-logo">
             <a href="index.html" style="color: white; text-decoration: none;">EcoMart</a>
         </div>
@@ -364,13 +364,13 @@
         </ul>
     </nav>
 
-    <!-- Enhanced Hero Section -->
-    <header class="hero-wrapper">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
+    <!-- Enhanced welcome Section -->
+    <header class="welcome-center-box">
+        <div class="welcome-overlay"></div>
+        <div class="welcome-content">
             <h1>Welcome to EcoMart</h1>
             <p>Your one-stop shop for sustainable, eco-friendly products that help you live a greener life.</p>
-            <a href="products.html" class="hero-btn">Shop Now</a>
+            <a href="products.html" class="welcome-btn">Shop Now</a>
         </div>
     </header>
 
@@ -436,51 +436,51 @@
         <h2 class="section-title">Featured Products</h2>
         <div class="items-grid">
             <!-- Product 1 -->
-            <div class="item-card">
+            <div class="product-box">
                 <img src="images/bamboo-bottle.jpg" alt="Bamboo Water Bottle">
                 <h3>Bamboo Water Bottle</h3>
                 <p class="price">
                     <span class="crossed-price">Rs. 3200</span>
                     <span class="sale">Rs. 2450</span>
                 </p>
-                <button class="buy-btn" onclick="addToCart('Bamboo Water Bottle', 'Rs. 2450')">Add to Cart</button>
+                <button class="add-button" onclick="addToCart('Bamboo Water Bottle', 'Rs. 2450')">Add to Cart</button>
             </div>
             <!-- Product 2 -->
-            <div class="item-card">
+            <div class="product-box">
                 <img src="images/hemp-bag.jpg" alt="Natural Hemp Bag">
                 <h3>Natural Hemp Bag</h3>
                 <p class="price">
                     <span class="crossed-price">Rs. 1200</span>
                     <span class="sale">Rs. 950</span>
                 </p>
-                <button class="buy-btn" onclick="addToCart('Natural Hemp Bag', 'Rs. 950')">Add to Cart</button>
+                <button class="add-button" onclick="addToCart('Natural Hemp Bag', 'Rs. 950')">Add to Cart</button>
             </div>
             <!-- Product 3 -->
-            <div class="item-card">
+            <div class="product-box">
                 <img src="images/organic-fertilizer.jpg" alt="Natural Organic Fertilizer">
                 <h3>Natural Organic Fertilizer</h3>
                 <p class="price">
                     <span class="crossed-price">Rs. 350</span>
                     <span class="sale">Rs. 280</span>
                 </p>
-                <button class="buy-btn" onclick="addToCart('Natural Organic Fertilizer', 'Rs. 280')">Add to
+                <button class="add-button" onclick="addToCart('Natural Organic Fertilizer', 'Rs. 280')">Add to
                     Cart</button>
             </div>
             <!-- Product 4 -->
-            <div class="item-card">
+            <div class="product-box">
                 <img src="images/beeswax-wraps.jpg" alt="Beeswax Wraps">
                 <h3>Beeswax Food Wraps</h3>
                 <p class="price">
                     <span class="crossed-price">Rs. 1950</span>
                     <span class="sale">Rs. 1680</span>
                 </p>
-                <button class="buy-btn" onclick="addToCart('Beeswax Food Wraps', 'Rs. 1680')">Add to Cart</button>
+                <button class="add-button" onclick="addToCart('Beeswax Food Wraps', 'Rs. 1680')">Add to Cart</button>
             </div>
         </div>
         <div style="text-align: center; margin-top: 30px;">
             <!-- Inline CSS - Unique positioning for this specific button
                  Justification: One-time override for centered CTA button -->
-            <a href="products.html" class="hero-btn" style="padding: 10px 30px; font-size: 1rem;">View All Products</a>
+            <a href="products.html" class="welcome-btn" style="padding: 10px 30px; font-size: 1rem;">View All Products</a>
         </div>
     </section>
 

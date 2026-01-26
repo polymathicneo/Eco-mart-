@@ -429,12 +429,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Add click handlers to product cards (excluding the buy button)
-    const productCards = document.querySelectorAll('.item-card');
+    const productCards = document.querySelectorAll('.product-box');
     productCards.forEach(card => {
         card.style.cursor = 'pointer';
         card.addEventListener('click', function (e) {
             // Don't open modal if they clicked the 'Add to Cart' button directly
-            if (e.target.classList.contains('buy-btn')) return;
+            if (e.target.classList.contains('add-button')) return;
 
             const name = card.querySelector('h3').textContent;
             const imgSrc = card.querySelector('img').src;
