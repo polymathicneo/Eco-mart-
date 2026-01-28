@@ -8,7 +8,8 @@ const teamMembers = [
         skills: "HTML, CSS, JavaScript",
         expertise: "Problem solving, Team coordination",
         education: "BSc (Hons) Computing",
-        contribution: "Core coding and architecture"
+        contribution: "Core coding and architecture",
+        instagram: "https://www.instagram.com/neois_hyperactive/?__pwa=1"
     },
     {
         name: "Monika Khatri",
@@ -17,7 +18,8 @@ const teamMembers = [
         skills: "Layout planning, UI Design",
         expertise: "Creative thinking, Market research",
         education: "BSc (Hons) Computing",
-        contribution: "UI design and competitor research"
+        contribution: "UI design and competitor research",
+        instagram: "https://www.instagram.com/ur.moniiiiii/?__pwa=1"
     },
     {
         name: "Babisha Karki",
@@ -26,7 +28,8 @@ const teamMembers = [
         skills: "Writing, SEO basics",
         expertise: "Communication, Organization",
         education: "BSc (Hons) Computing",
-        contribution: "Website text and product descriptions"
+        contribution: "Website text and product descriptions",
+        instagram: "https://www.instagram.com/babishaaaaa/?__pwa=1"
     },
     {
         name: "Arayan Timalsena",
@@ -35,7 +38,8 @@ const teamMembers = [
         skills: "QA Testing, Documentation",
         expertise: "Attention to detail, Patience",
         education: "BSc (Hons) Computing",
-        contribution: "Quality assurance and process docs"
+        contribution: "Quality assurance and process docs",
+        instagram: "https://www.instagram.com/aryan_timalsna/?__pwa=1"
     },
     {
         name: "Pershek Chaudhary",
@@ -44,7 +48,8 @@ const teamMembers = [
         skills: "Database Management, API Integration",
         expertise: "SQL, Server-side logic",
         education: "BSc (Hons) Computing",
-        contribution: "Backend support and data integrity"
+        contribution: "Backend support and data integrity",
+        instagram: "https://www.instagram.com/the.widows.wishper/?__pwa=1"
     }
 ];
 
@@ -88,6 +93,12 @@ function updatePortfolioDisplay() {
     document.getElementById('portfolioExpertise').textContent = member.expertise;
     document.getElementById('portfolioEducation').textContent = member.education;
     document.getElementById('portfolioContribution').textContent = member.contribution;
+
+    // Update Instagram link
+    const instagramLink = document.getElementById('portfolioInstagram');
+    if (instagramLink) {
+        instagramLink.href = member.instagram;
+    }
 
     // Update counter
     document.getElementById('memberCounter').textContent = `${currentMemberIndex + 1} / ${teamMembers.length}`;
